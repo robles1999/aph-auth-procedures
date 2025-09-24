@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Plan Overview</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Tailwind + Extended Config -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: [ 'Inter', 'sans-serif' ],
+                        },
+                        colors: {
+                            primary: '#3B82F6',
+                            accent: '#EC4899',
+                        },
+                        boxShadow: {
+                            glass: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+                        }
+                    }
+                }
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Google Font: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+              rel="stylesheet" />
+    </head>
+
+    <body class="bg-gray-100 text-gray-900 font-sans">
+        <main class="p-6 max-w-5xl mx-auto">
+
+            <!-- Back to All Plans -->
+            <a
+               href="index.html"
+               class="inline-flex items-center gap-2 mb-6 px-4 py-2
+                        bg-white/90 backdrop-blur-sm border border-gray-200
+                        rounded-full text-sm font-medium text-primary
+                        hover:bg-primary/10 hover:shadow-md transition">
+                <span class="text-lg leading-none">←</span>
+                All Plans
+            </a>
+
+            <!-- Plan Card -->
+            <div
+                 class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-8 text-center shadow-lg">
+                <div id="plan-logo" class="text-4xl mb-2">🏥</div>
+                <h3 id="plan-name" class="text-2xl font-bold mb-1">Plan Name</h3>
+                <p id="plan-category" class="text-gray-600 mb-4">Category</p>
+            </div>
+
+            <!-- Evaluation & Treatment Cards -->
+            <div class="flex flex-wrap justify-center gap-10">
+
+                <!-- Evaluation Card -->
+                <a id="eval-link"
+                   href="step2-eval.html"
+                   onclick="localStorage.setItem('currentService','eval')"
+                   class="w-72 bg-white/90 backdrop-blur-sm border border-gray-200
+                    rounded-2xl p-6 text-center transform hover:scale-105
+                    hover:-translate-y-1 transition-all duration-300
+                    shadow-glass">
+                    <h4 class="text-2xl font-semibold mb-6">Evaluation Visit <span>🩺</span></h4>
+                    <div
+                         id="eval-pill"
+                         class="inline-block text-sm px-3 py-1 rounded-full border mx-auto mb-3">
+                        Status
+                    </div>
+                    <p id="eval-sub" class="text-gray-600 text-sm">
+                        Subtitle
+                    </p>
+                </a>
+
+                <!-- Treatment Card -->
+                <a
+                   href="step2-treatment.html"
+                   onclick="localStorage.setItem('currentService','treatment')"
+                   class="w-72 bg-white/90 backdrop-blur-sm border border-gray-200
+                    rounded-2xl p-6 text-center transform hover:scale-105
+                    hover:-translate-y-1 transition-all duration-300
+                    shadow-glass">
+                    <h4 class="text-2xl font-semibold mb-6">Treatment Visit <span>💊</span></h4>
+                    <div
+                         id="treat-pill"
+                         class="inline-block text-sm px-3 py-1 rounded-full border
+                        mx-auto mb-3">
+                        Status
+                    </div>
+                    <p id="treat-sub" class="text-gray-600 text-sm">
+                        Subtitle
+                    </p>
+                </a>
+            </div>
+        </main>
+
+        <script>
+            // pull dataset and current plan
+            const plans = JSON.parse(localStorage.getItem("insurancePlans") || "{}");
+            const name = localStorage.getItem("currentPlanName") || "";
+            const plan = plans[ name ] || {};
+
+            // fill header card
+            document.getElementById("plan-logo").textContent = plan.logo || "🏥";
+            document.getElementById("plan-name").textContent = name;
+            document.getElementById("plan-category").textContent = plan.category || "";
+
+            // evaluation pill & subtitle
+            const evalPill = document.getElementById("eval-pill");
+            const evalSub = document.getElementById("eval-sub");
+
+            <!-- Script to disable the link on the card if Auth is not required -->
+
+            const evalLink = document.getElementById("eval-link");
+
+
+            if (plan.evalAuth === false && evalLink)
+            {
+                // Create a wrapper div with the same classes as the <a> tag
+                const wrapper = document.createElement("div");
+                wrapper.id = "eval-link";
+
+                // Copy classes but remove hover-related ones
+                const originalClasses = evalLink.className.split(" ");
+                const filteredClasses = originalClasses.filter(cls =>
+                    !cls.startsWith("hover:") &&
+                    cls !== "transform" &&
+                    cls !== "transition-all"
+                );
+                wrapper.className = filteredClasses.join(" ");
+
+                // Move all child elements from <a> to the new <div>
+                while (evalLink.firstChild)
+                {
+                    wrapper.appendChild(evalLink.firstChild);
+                }
+
+                // Replace the <a> tag with the new <div>
+                evalLink.replaceWith(wrapper);
+
+                // Add font-bold class to the subtitle
+                if (evalSub)
+                {
+                    evalSub.classList.add("font-bold");
+                }
+
+            } else if (plan.evalAuth === "verification" && evalLink)
+            {
+                // Change the href to point to step2-iv.html
+                evalLink.setAttribute("href", "step2-iv.html");
+            }
+
+            if (plan.evalAuth === false)
+            {
+                evalPill.textContent = "No Authorization Required";
+                evalPill.classList.add("bg-green-100", "text-green-700", "border-green-300");
+                evalSub.textContent = "Proceed with evaluation.";
+            } else if (plan.evalAuth === "verification")
+            {
+                evalPill.textContent = "Verification Required";
+                evalPill.classList.add("bg-blue-100", "text-blue-700", "border-blue-300");
+                evalSub.textContent = "Verify insurance before eval.";
+            } else
+            {
+                evalPill.textContent = "Authorization Required";
+                evalPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
+                evalSub.textContent = "Submit auth before evaluation.";
+            }
+
+            // treatment pill & subtitle
+            const trPill = document.getElementById("treat-pill");
+            const trSub = document.getElementById("treat-sub");
+            if (plan.treatmentAuth)
+            {
+                trPill.textContent = "Authorization Required";
+                trPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
+                trSub.textContent = "Submit auth before treatment.";
+            } else
+            {
+                trPill.textContent = "No Authorization Required";
+                trPill.classList.add("bg-green-100", "text-green-700", "border-green-300");
+                trSub.textContent = "Proceed with treatment.";
+            }
+        </script>
+    </body>
+
+</html>

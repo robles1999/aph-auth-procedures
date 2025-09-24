@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insurance Authorization Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind + Extended Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [ 'Inter', 'sans-serif' ],
+            },
+            colors: {
+              primary: '#3B82F6',
+              accent: '#EC4899',
+            },
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
+  </head>
+
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <main class="p-6 max-w-5xl mx-auto">
+      <header class="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl p-8 mb-8 shadow-md">
+        <h1 class="text-3xl font-bold tracking-wide text-center text-gray-800 mb-6">
+          Insurance Authorization Guide
+        </h1>
+        <div class="flex justify-center">
+          <input
+                 id="searchInput"
+                 type="text"
+                 placeholder="Search plans…"
+                 class="w-full md:w-1/2 px-5 py-3 bg-white border border-gray-200 rounded-xl placeholder-gray-400 text-gray-700
+                 focus:outline-none focus:ring-2 focus:ring-primary transition" />
+        </div>
+      </header>
+
+      <section id="planContainer" class="flex flex-wrap justify-center gap-6"></section>
+    </main>
+
+    <script>
+      const insurancePlans = {
+        "Ambetter": {
+          category: "Medicaid Marketplace",
+          logo: "☀️", evalAuth: "verification",
+          treatmentAuth: true, ivPortalUrl: "https://www.sunshinehealth.com/login.html",
+          txPortalUrl: "https://www.radmd.com/RadMD/Common/Login.aspx"
+        },
+        Aetna: {
+          category: "Commercial Insurance",
+          logo: "🏢", evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        "Aetna Better Health": {
+          category: "Medicaid Managed Care",
+          logo: "🏥", evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+        },
+        "Aetna Healthy Kids": {
+          category: "Medicaid Managed Care",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        "Aetna Managed": {
+          category: "Medicaid Managed Care",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        BCBS: {
+          category: "Commercial Insurance",
+          logo: "🏢",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        Humana: {
+          category: "Medicaid Managed Care",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+
+        "Simply Healthcare": {
+          category: "Medicaid Managed Care",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        "Simply Managed": {
+          category: "Medicaid Managed Care",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: true,
+          ivPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login",
+          txPortalUrl: "https://essentials.availity.com/static/public/onb/onboarding-ui-apps/availity-fr-ui/?_gl=1*1qxannh*_gcl_au*MzkyNTI1MjkxLjE3NTYyMjIyNDI.*_ga*MTQ4ODk4NDYxNS4xNzU2MjIyMjQz*_ga_E2R9S4EQP7*czE3NTgyMTA0MDYkbzE2JGcxJHQxNzU4MjExMDY0JGo2MCRsMCRoMA..#/login"
+        },
+        "Sunshine CMS": {
+          category: "Medicare CMS",
+          logo: "☀️",
+          evalAuth: false,
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.sunshinehealth.com/login.html",
+          txPortalUrl: "https://www.sunshinehealth.com/login.html"
+        },
+        "Sunshine HMO": {
+          category: "Medicaid HMO",
+          logo: "☀️",
+          evalAuth: false,
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.sunshinehealth.com/login.html",
+          txPortalUrl: "https://www.sunshinehealth.com/login.html"
+        },
+        Tricare: {
+          category: "Government Insurance",
+          logo: "🏥",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://tricare4u.com/en/portal/provider",
+          txPortalUrl: "https://tricare4u.com/en/portal/provider"
+        },
+        "United Healthcare": {
+          category: "Commercial Insurance",
+          logo: "🏢",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.uhcprovider.com",
+          txPortalUrl: "https://www.uhcprovider.com"
+        },
+        "United Healthcare/Select": {
+          category: "Commercial Insurance",
+          logo: "🏢",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.uhcprovider.com",
+          txPortalUrl: "https://www.uhcprovider.com"
+        },
+        "United Healthcare/UHC": {
+          category: "Commercial Insurance",
+          logo: "🏢",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.uhcprovider.com",
+          txPortalUrl: "https://www.uhcprovider.com"
+        },
+        "United Healthcare/UMR": {
+          category: "Commercial Insurance",
+          logo: "🏢",
+          evalAuth: "verification",
+          treatmentAuth: true,
+          ivPortalUrl: "https://www.umr.com/",
+          txPortalUrl: "https://identity.onehealthcareid.com/oneapp/index.html#/login"
+        },
+      };
+
+      localStorage.setItem("insurancePlans", JSON.stringify(insurancePlans));
+      const container = document.getElementById("planContainer");
+
+      function createCard(name, data)
+      {
+        const evalText = data.evalAuth === true
+          ? "Auth Required"
+          : data.evalAuth === false
+            ? "No Auth or IV"
+            : "IV Needed";
+
+        const evalColor = data.evalAuth === true
+          ? "border-rose-500 bg-rose-50 text-rose-600"
+          : data.evalAuth === false
+            ? "border-green-300 bg-green-100 text-green-700"
+            : data.evalAuth === "verification"
+              ? "border-rose-500 bg-blue-100 text-blue-700"
+              : "";
+
+        const treatColor = data.treatmentAuth
+          ? "border-rose-500 bg-rose-50 text-rose-600"
+          : "border-green-300 bg-green-100 text-green-700";
+
+        const card = document.createElement("a");
+        card.href = "step1.html";
+        card.onclick = () => localStorage.setItem("currentPlanName", name);
+        card.className =
+          "w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 " +
+          "shadow-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-300";
+
+        card.innerHTML = `
+        <div class="text-center">
+          <div class="text-4xl mb-3">${data.logo}</div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">${name}</h3>
+          <p class="text-sm text-gray-500 mb-4">${data.category}</p>
+          <div class="inline-block text-sm px-3 py-1 rounded-full ${evalColor} mb-2">
+            <span class="font-bold">Eval:</span> ${evalText}
+          </div>
+          <div class="inline-block text-sm px-3 py-1 rounded-full ${treatColor}">
+            <span class="font-bold">Treat:</span> ${data.treatmentAuth ? "Auth Required" : "No Auth"}
+          </div>
+        </div>
+      `;
+        return card;
+      }
+
+      function renderCards(filter = "")
+      {
+        container.innerHTML = "";
+        Object.entries(insurancePlans).forEach(([ name, data ]) =>
+        {
+          if (name.toLowerCase().includes(filter.toLowerCase()))
+          {
+            container.appendChild(createCard(name, data));
+          }
+        });
+      }
+
+      document.getElementById("searchInput")
+        .addEventListener("input", (e) => renderCards(e.target.value));
+
+      renderCards(); // Initial render
+    </script>
+  </body>
+
+</html>
