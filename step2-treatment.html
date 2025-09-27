@@ -1,473 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Treatment Steps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <head>
-        <meta charset="UTF-8" />
-        <title>Treatment Steps</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tailwind + Extended Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#3B82F6",
+              accent: "#EC4899",
+            },
+            boxShadow: {
+              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Tailwind + Extended Config -->
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: [ 'Inter', 'sans-serif' ],
-                        },
-                        colors: {
-                            primary: '#3B82F6',
-                            accent: '#EC4899',
-                        },
-                        boxShadow: {
-                            glass: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
-                        }
-                    }
-                }
-            }
-        </script>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-        <!-- Google Font: Inter -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-              rel="stylesheet" />
-    </head>
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <main class="p-6 max-w-5xl mx-auto animate-fadeIn">
+      <!-- Navigation Buttons -->
 
-    <body class="bg-gray-100 text-gray-900 font-sans">
-        <main class="p-6 max-w-5xl mx-auto animate-fadeIn">
+      <!-- All Plans Link -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <a
+          href="index.html"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition"
+        >
+          <span class="text-lg leading-none">←</span> All Plans
+        </a>
 
-            <!-- Navigation Buttons -->
+        <!-- Plan Overview Link -->
+        <a
+          href="step1.html"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition"
+        >
+          <span class="text-lg leading-none">←</span> Plan Overview
+        </a>
+      </div>
 
-            <!-- All Plans Link -->
-            <div class="flex flex-wrap gap-4 mb-6">
+      <!-- Page Under Construction Card -->
+      <div
+        class="bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-xl p-4 mb-6 text-center shadow-md"
+      >
+        <h3 class="text-xl font-semibold mb-1">🚧 Page Under Construction</h3>
+        <p class="text-sm">
+          We're working hard to bring this page to life. Please check back soon!
+        </p>
+      </div>
+
+      <!-- Header Card -->
+      <section
+        class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg"
+      >
+        <div class="flex items-center space-x-4">
+          <div id="plan-logo" class="text-4xl">🏥</div>
+          <div>
+            <h2 id="plan-name" class="text-2xl font-bold text-gray-900">
+              Selected Plan Name
+            </h2>
+            <p id="plan-category" class="text-gray-600">Category</p>
+          </div>
+
+          <div class="ml-auto p-3 rounded-xl bg-red-100 flex items-center">
+            <span class="text-primary text-2xl">💊</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Requirement Panel -->
+
+      <section
+        class="bg-red-50/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border-2 border-red-200 shadow-lg"
+      >
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="w-6 h-6 text-red-600 block">⚠️</span>
+          <h3 class="text-lg font-semibold text-red-800">
+            Authorization required before treatment.
+          </h3>
+        </div>
+        <p class="text-sm text-red-700">
+          Submit the treatment authorization form.
+        </p>
+      </section>
+
+      <!-- Process Steps -->
+
+      <section
+        class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg"
+      >
+        <h2 class="font-bold italic text-red-600 text-2xl">Epic</h2>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Required Steps</h3>
+        <div class="space-y-4">
+          <!-- Required Step 1 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              1
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>Review referral communications history. Continue
+                with verification if needed.
+              </p>
+            </div>
+          </div>
+
+          <!-- Required Step 2 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              2
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>Verify the POC has been signed. POC will be
+                needed to be uploaded to portal or faxed.
+              </p>
+            </div>
+          </div>
+
+          <!-- Required Step 3 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              3
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>
+                Verify we have a valid referral on file. Referral won't need to
+                be uploaded to portal.
+              </p>
+            </div>
+          </div>
+
+          <!-- Required Step 4 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              4
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>Check reg checklist and RTE
+              </p>
+            </div>
+          </div>
+
+          <!-- Required Step 5 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              5
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>
+                Calculate Visits and Units by entering highest POC recommended
+                values in the Auth calculator.
+              </p>
+              <div class="flex justify-center">
                 <a
-                   href="index.html"
-                   class="inline-flex items-center gap-2 px-4 py-2
-               bg-white/90 backdrop-blur-sm border border-gray-200
-               rounded-full text-sm font-medium text-primary
-               hover:bg-primary/10 hover:shadow-md transition">
-                    <span class="text-lg leading-none">←</span> All Plans
+                  id="openCalculatorBtn"
+                  href="https://robles1999.github.io/Authorization-Units-Calculator-Modern/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white pl-4 pr-4 pt-1 pb-1 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition shadow-lg mt-3"
+                >
+                  Open Auth Calculator
                 </a>
+              </div>
+            </div>
+          </div>
 
-                <!-- Plan Overview Link -->
-                <a
-                   href="step1.html"
-                   class="inline-flex items-center gap-2 px-4 py-2
-               bg-white/90 backdrop-blur-sm border border-gray-200
-               rounded-full text-sm font-medium text-primary
-               hover:bg-primary/10 hover:shadow-md transition">
-                    <span class="text-lg leading-none">←</span> Plan Overview
-                </a>
+          <!-- Required Step 6 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              6
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900">
+                <span>✔ </span>Process Auth through Portal
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Cards -->
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <section
+          class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-lg"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <div
+              class="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl"
+            >
+              <span class="w-6 h-6 text-white block">🔗</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-lg">Access Portal</h4>
+              <p class="text-gray-600 text-sm">Provider Portal</p>
+            </div>
+          </div>
+
+          <!-- Access Portal Link Button -->
+
+          <a
+            id="openPortalBtn"
+            href="#"
+            class="w-full block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition shadow-lg mt-9 mb-6"
+          >
+            Open Portal
+          </a>
+
+          <!-- Portal Specific Instructions -->
+
+          <a
+            id="openPortalBtn"
+            href="#"
+            class="w-full block text-center bg-gradient-to-r from-red-600 to-yellow-600 text-white py-3 rounded-xl font-semibold hover:from-red-700 hover:to-yellow-700 transition shadow-lg"
+          >
+            Portal Specific Instructions
+          </a>
+        </section>
+
+        <!-- Required Information -->
+
+        <section
+          class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-lg"
+        >
+          <div class="flex items-center space-x-3 mb-4">
+            <div
+              class="p-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl"
+            >
+              <span class="w-6 h-6 text-white block">📄</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-lg">
+                Required Information
+              </h4>
+              <p class="text-gray-600 text-sm">Prepare these items</p>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Signed POC (Plan of Care)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Valid referral</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Patient insurance id</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Provider NPI: 1184709057</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Provider Tax ID: 591726273</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>CPT codes and diagnosis</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
+              <span>Frequency and duration</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Required Steps After Portal-->
+
+      <section
+        class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg"
+      >
+        <h2 class="font-bold italic text-red-600 text-2xl">Epic</h2>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          Referral Update Steps by Section
+        </h3>
+        <div class="space-y-4">
+          <!-- Required Step 1 General -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              1
             </div>
 
-            <!-- Page Under Construction Card -->
-            <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-xl p-4 mb-6 text-center shadow-md">
-                <h3 class="text-xl font-semibold mb-1">🚧 Page Under Construction</h3>
-                <p class="text-sm">We're working hard to bring this page to life. Please check back soon!</p>
+            <!-- Epic General tab instructions -->
+
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <h2 class="font-medium text-gray-900 text-lg">
+                <span>✔ </span>General
+              </h2>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <h2 class="font-medium text-gray-900 text-md">
+                  Authorization Scenarios
+                </h2>
+
+                <!-- If Auth is not required -->
+                <div class="text-gray-900">
+                  <p>
+                    <span class="font-semibold"
+                      >If authorization is not required:</span
+                    >
+                  </p>
+                  <ul class="list-disc list-outside pl-5 ml-4">
+                    <li><span class="font-bold">Status</span>: Authorized</li>
+                    <li>
+                      <span class="font-bold">Pend Reason</span>: No Payer Auth
+                      Required
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- If authorized -->
+                <div class="text-gray-900">
+                  <p><span class="font-semibold">If authorized:</span></p>
+                  <ul class="list-disc list-outside pl-5 ml-4">
+                    <li><span class="font-bold">Status</span>: Authorized</li>
+                    <li>
+                      <span class="font-bold">Pend Reason</span>: Received payer
+                      authorization
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- If authorization is pending -->
+                <div class="text-gray-900">
+                  <p>
+                    <span class="font-semibold"
+                      >If authorization is pending:</span
+                    >
+                  </p>
+                  <ul class="list-disc list-outside pl-5 ml-4">
+                    <li>
+                      <span class="font-bold">Status</span>: Pending review
+                    </li>
+                    <li>
+                      <span class="font-bold">Pend Reason</span>: Authorization
+                      initiated
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <!-- Header Card -->
-            <section
-                     class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6
-             border border-gray-200 shadow-lg">
-                <div class="flex items-center space-x-4">
-                    <div id="plan-logo" class="text-4xl">🏥</div>
-                    <div>
-                        <h2 id="plan-name" class="text-2xl font-bold text-gray-900">
-                            Selected Plan Name
-                        </h2>
-                        <p id="plan-category" class="text-gray-600">Category</p>
-                    </div>
+          <!-- Step 2 Communications -->
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              2
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900 text-lg">
+                <span>✔ </span>Communications
+              </p>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <h2 class="font-medium text-gray-900 text-md">
+                  Authorization Scenarios
+                </h2>
 
-
-                    <div class="ml-auto p-3 rounded-xl bg-red-100 flex items-center">
-                        <span class="text-primary text-2xl">💊</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Requirement Panel -->
-
-            <section
-                     class="bg-red-50/80 backdrop-blur-sm rounded-2xl p-6 mb-6
-             border-2 border-red-200 shadow-lg">
-                <div class="flex items-center space-x-3 mb-3">
-                    <span class="w-6 h-6 text-red-600 block">⚠️</span>
-                    <h3 class="text-lg font-semibold text-red-800">
-                        Authorization required before treatment.
-                    </h3>
-                </div>
-                <p class="text-sm text-red-700">
-                    Submit the treatment authorization form.
-                </p>
-            </section>
-
-            <!-- Process Steps -->
-
-            <section
-                     class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6
-             border border-gray-200 shadow-lg">
-                <h2 class="font-bold italic text-red-600 text-2xl">Epic </h2>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Required Steps</h3>
-                <div class="space-y-4">
-
-                    <!-- Required Step 1 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">1</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>Review referral communications history. Continue with verification if needed.</p>
-                        </div>
-                    </div>
-
-                    <!-- Required Step 2 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">2</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>Verify the POC has been signed. POC will be needed to be uploaded to portal or faxed.</p>
-                        </div>
-                    </div>
-
-                    <!-- Required Step 3 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">3</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>
-                                Verify we have a valid referral on file. Referral won't need to be uploaded to portal.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Required Step 4 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">4</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>Check reg checklist and RTE</p>
-                        </div>
-                    </div>
-
-                    <!-- Required Step 5 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                   	                rounded-full flex items-center justify-center
-                   	                text-white font-semibold text-sm mt-1">5</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>
-                                Calculate Visits and Units by entering highest POC recommended values in the Auth calculator.
-                            </p>
-                            <div class="flex justify-center">
-                                <a id="openCalculatorBtn"
-                                   href="https://robles1999.github.io/Authorization-Units-Calculator-Modern/"
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="inline-block text-center
-                 	                bg-gradient-to-r from-green-600 to-emerald-600
-                 	                text-white pl-4 pr-4 pt-1 pb-1 rounded-xl font-semibold
-                 	                hover:from-green-700 hover:to-emerald-700
-                 	                transition shadow-lg mt-3">
-                                    Open Auth Calculator
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Required Step 6 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">6</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900"><span>✔ </span>Process Auth through Portal</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Action Cards -->
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                <section
-                         class="bg-white/90 backdrop-blur-sm rounded-2xl p-6
-                            border border-gray-200 shadow-lg">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl">
-                            <span class="w-6 h-6 text-white block">🔗</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900 text-lg">Access Portal</h4>
-                            <p class="text-gray-600 text-sm">Provider Portal</p>
-                        </div>
-                    </div>
-
-                    <!-- Access Portal Link Button -->
-
-                    <a id="openPortalBtn"
-                       href="#"
-                       class="w-full block text-center
-                        bg-gradient-to-r from-green-600 to-emerald-600
-                        text-white py-3 rounded-xl font-semibold
-                        hover:from-green-700 hover:to-emerald-700
-                        transition shadow-lg mt-9 mb-6">
-                        Open Portal
-                    </a>
-
-                    <!-- Portal Specific Instructions -->
-
-                    <a id="openPortalBtn"
-                       href="#"
-                       class="w-full block text-center
-                        bg-gradient-to-r from-red-600 to-yellow-600
-                        text-white py-3 rounded-xl font-semibold
-                        hover:from-red-700 hover:to-yellow-700
-                        transition shadow-lg">
-                        Portal Specific Instructions
-                    </a>
-                </section>
-
-                <!-- Required Information -->
-
-                <section
-                         class="bg-white/90 backdrop-blur-sm rounded-2xl p-6
-                            border border-gray-200 shadow-lg">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="p-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl">
-                            <span class="w-6 h-6 text-white block">📄</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900 text-lg">Required Information</h4>
-                            <p class="text-gray-600 text-sm">Prepare these items</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Signed POC (Plan of Care)</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Valid referral</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Patient insurance id</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Provider NPI: 1184709057</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Provider Tax ID: 591726273</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>CPT codes and diagnosis</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-                            <span>Frequency and duration</span>
-                        </li>
+                <!-- If No Auth Required -->
+                <div class="text-gray-900 space-y-2">
+                  <p class="font-semibold">If no Auth Required:</p>
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Add a PB Note</span>: PER ONLINE
+                      RESPONSE FROM {insurance}. NO AUTH REQUIRED.
+                    </li>
+                    <li>
+                      <span class="font-bold">Scan the Portal result then</span
+                      >:
+                    </li>
+                    <ul class="list-disc list-outside pl-5 ml-6">
+                      <li>Import document into Epic</li>
+                      <li>
+                        <span class="font-bold">Document Description</span>:
+                        RESPONSE FROM {insurance}
+                      </li>
                     </ul>
-                </section>
-            </div>
-
-            <!-- Required Steps After Portal-->
-
-            <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6
-                        border border-gray-200 shadow-lg">
-                <h2 class="font-bold italic text-red-600 text-2xl">Epic </h2>
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Referral Update Steps by Section</h3>
-                <div class="space-y-4">
-
-                    <!-- Required Step 1 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">1</div>
-
-			<!-- Epic General tab instructions -->
-
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg ">
-                            <h2 class="font-medium text-gray-900 text-lg"><span>✔ </span>General</h2>
-                            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-                                <h2 class="font-medium text-gray-900 text-md">Authorization Scenarios</h2>
-
-                                <div class="text-gray-900">
-                                    <p><span class="font-semibold">If authorization is not required:</span></p>
-                                    <ul class="list-disc list-inside ml-4">
-                                        <li><span class="font-bold">Status</span>: Authorized</li>
-                                        <li><span class="font-bold">Pend Reason</span>: No Payer Auth Required</li>
-                                    </ul>
-                                </div>
-
-                                <div class="text-gray-900">
-                                    <p><span class="font-semibold">If authorized:</span></p>
-                                    <ul class="list-disc list-inside ml-4">
-                                        <li><span class="font-bold">Status</span>: Authorized</li>
-                                        <li><span class="font-bold">Pend Reason</span>: Received payer authorization</li>
-                                    </ul>
-                                </div>
-
-                                <div class="text-gray-900">
-                                    <p><span class="font-semibold">If authorization is pending:</span></p>
-                                    <ul class="list-disc list-inside ml-4">
-                                        <li><span class="font-bold">Status</span>: Pending review</li>
-                                        <li><span class="font-bold">Pend Reason</span>: Authorization initiated</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">2</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900 text-lg"><span>✔ </span>Communications</p>
-                            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-                                <h2 class="font-medium text-gray-900 text-md">Authorization Scenarios</h2>
-
-                                <!-- No Auth Required -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If no Auth Required:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li><span class="font-bold">Add a PB Note</span>: PER ONLINE RESPONSE FROM {insurance}. NO AUTH REQUIRED.</li>
-                                        <li><span class="font-bold">Scan the Portal result then</span>:</li>
-                                        <ul class="list-disc list-inside ml-6">
-                                            <li>Import document into Epic</li>
-                                            <li><span class="font-bold">Document Description</span>: RESPONSE FROM {insurance}</li>
-                                        </ul>
-                                    </ul>
-                                </div>
-
-                                <!-- Authorized -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If Authorized:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li><span class="font-bold">Add a PB Note</span>: AUTH SUBMITTED TO {insurance}</li>
-                                        <li>Add and fillout the <span class="font-bold">OSSAUTH</span> note</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Pending or Manual Auth -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If Auth is PENDING or Manual Auth was submitted:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li><span class="font-bold">Add a PB Note</span>: SENT {discipline} AUTH REQUEST TO {insurance}. AUTH PENDING.</li>
-                                        <li>Referral Icon <span class="text-red-600 font-bold">( X )</span> will remain <span class="text-red-600 font-bold">Red</span></li>
-                                        <li><span class="text-red-700 font-bold">No further changes needed until AUTH is approved.</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">3</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900 text-lg"><span>✔ </span>Scheduling</p>
-                            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-                                <h2 class="font-medium text-gray-900 text-md"><span class="font-bold">Scheduling Status:</span> Ready to Schedule</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">4</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900 text-lg">Authorization</p>
-                            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-                                <h2 class="font-medium text-gray-900 text-md">Authorization Scenarios</h2>
-
-                                <!-- No Auth Required -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If no Auth Required:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li><span class="font-bold">_______________________________________________</li>
-                                        <li><span class="font-bold">_______________________________________________</li>
-                                        <ul class="list-disc list-inside ml-6">
-                                            <li>_______________________________________________</li>
-                                            <li>_______________________________________________</li>
-                                        </ul>
-                                    </ul>
-                                </div>
-
-                                <!-- Authorized -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If Authorized:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li>_______________________________________________</li>
-                                        <li>_______________________________________________</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Pending or Manual Auth -->
-                                <div class="text-gray-900 space-y-2">
-                                    <p class="font-semibold">If Auth is PENDING or Manual Auth was submitted:</p>
-                                    <ul class="list-disc list-inside ml-4 space-y-1">
-                                        <li>_______________________________________________</li>
-                                        <li>_______________________________________________</li>
-                                        <li>_______________________________________________</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 5 -->
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                             class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600
-                                rounded-full flex items-center justify-center
-                                text-white font-semibold text-sm mt-1">5</div>
-                        <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-                            <p class="font-medium text-gray-900 text-lg">Coverage Authorization</p>
-                        </div>
-                    </div>
+                  </ul>
                 </div>
-            </section>
 
-            <!-- Important Note -->
-            <!-- <section
+                <!-- If Authorized -->
+                <div class="text-gray-900 space-y-2">
+                  <p class="font-semibold">If Authorized:</p>
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Add a PB Note</span>: AUTH
+                      SUBMITTED TO {insurance}
+                    </li>
+                    <li>
+                      Add and fillout the
+                      <span class="font-bold">OSSAUTH</span> note
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- If Auth is Pending or Manual Auth -->
+                <div class="text-gray-900 space-y-2">
+                  <p class="font-semibold">
+                    If Auth is PENDING or Manual Auth was submitted:
+                  </p>
+                  <ul class="list-disc list-ouside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Add a PB Note</span>: SENT
+                      {discipline} AUTH REQUEST TO {insurance}. AUTH PENDING.
+                    </li>
+                    <li>
+                      Referral Icon
+                      <span class="text-red-600 font-bold">( X )</span> will
+                      remain <span class="text-red-600 font-bold">Red</span>
+                    </li>
+                    <li>
+                      <span class="text-red-700 font-bold"
+                        >No further changes needed until AUTH is approved.</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 Scheduling -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              3
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900 text-lg">
+                <span>✔ </span>Scheduling
+              </p>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <h2 class="font-medium text-gray-900 text-md">
+                  <span class="font-bold">Scheduling Status:</span> Ready to
+                  Schedule
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 Authorization -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              4
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900 text-lg">Authorization</p>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <div class="text-gray-900 space-y-2">
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Referral Counts:</span> # of
+                      visits approved
+                    </li>
+                    <li>
+                      <span class="font-bold"
+                        >Referral-Level Authorization Information: </span
+                      >Start Date of <span class="font-bold">Today</span> and
+                      Expiration Date of
+                      <span class="font-bold">Authorized Expiration Date</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              5
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900 text-lg">
+                Coverage Authorization
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Important Note -->
+      <!-- <section
                      class="mt-4 p-4 bg-yellow-50/80 backdrop-blur-sm
              rounded-lg border border-yellow-200 shadow-lg">
                 <p class="text-yellow-800 text-sm">
@@ -475,36 +544,33 @@
                 </p>
             </section> 
             -->
+    </main>
 
-        </main>
+    <!-- JavaScript -->
 
-        <!-- JavaScript -->
+    <script>
+      // pull dataset and current plan
+      const plans = JSON.parse(localStorage.getItem("insurancePlans") || "{}");
+      const name = localStorage.getItem("currentPlanName") || "";
+      const plan = plans[name] || {};
 
-        <script>
-            // pull dataset and current plan
-            const plans = JSON.parse(localStorage.getItem("insurancePlans") || "{}");
-            const name = localStorage.getItem("currentPlanName") || "";
-            const plan = plans[ name ] || {};
+      // fill header card…
+      document.getElementById("plan-logo").textContent = plan.logo || "🏥";
+      document.getElementById("plan-name").textContent = name;
+      document.getElementById("plan-category").textContent =
+        plan.category || "";
 
-            // fill header card…
-            document.getElementById("plan-logo").textContent = plan.logo || "🏥";
-            document.getElementById("plan-name").textContent = name;
-            document.getElementById("plan-category").textContent = plan.category || "";
-
-            // 2) set the portal button href dynamically
-            const openPortalBtn = document.getElementById("openPortalBtn");
-            if (plan.txPortalUrl)
-            {
-                openPortalBtn.href = plan.txPortalUrl;
-                openPortalBtn.setAttribute("target", "_blank");
-            } else
-            {
-                // fallback: disable or hide
-                openPortalBtn.href = "#";
-                openPortalBtn.classList.add("opacity-50", "cursor-not-allowed");
-                openPortalBtn.removeAttribute("hover:from-green-700");
-            }
-        </script>
-    </body>
-
+      // 2) set the portal button href dynamically
+      const openPortalBtn = document.getElementById("openPortalBtn");
+      if (plan.txPortalUrl) {
+        openPortalBtn.href = plan.txPortalUrl;
+        openPortalBtn.setAttribute("target", "_blank");
+      } else {
+        // fallback: disable or hide
+        openPortalBtn.href = "#";
+        openPortalBtn.classList.add("opacity-50", "cursor-not-allowed");
+        openPortalBtn.removeAttribute("hover:from-green-700");
+      }
+    </script>
+  </body>
 </html>
