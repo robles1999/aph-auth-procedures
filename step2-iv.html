@@ -205,13 +205,36 @@
           <!-- Portal Specific Instructions -->
 
           <a
-            id="openPortalBtn"
+            id="openInstructionsPortalBtn"
             href="#"
             class="w-full block text-center bg-gradient-to-r from-red-600 to-yellow-600 text-white py-3 rounded-xl font-semibold hover:from-red-700 hover:to-yellow-700 transition shadow-lg"
           >
             Portal Specific Instructions
           </a>
         </section>
+
+        <!-- 👇👇 Modal background 👇👇 -->
+        <div
+          id="portalModal"
+          class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50"
+        >
+          <!-- Modal content -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 max-w-sm text-center mx-4"
+          >
+            <h2 class="text-lg font-semibold mb-3">Coming Soon</h2>
+            <p class="text-gray-600 mb-4">
+              Portal-specific instructions will be available here soon.
+            </p>
+            <button
+              id="closeModalBtn"
+              class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+        <!-- 👆👆 Modal code ends here 👆👆 -->
 
         <!-- Required Information -->
 
@@ -511,6 +534,42 @@
         openPortalBtn.classList.add("opacity-50", "cursor-not-allowed");
         openPortalBtn.removeAttribute("hover:from-green-700");
       }
+
+      // Modal script (red button)
+      document.addEventListener("DOMContentLoaded", () => {
+        const instructionsBtn = document.getElementById(
+          "openInstructionsPortalBtn"
+        );
+        const modal = document.getElementById("portalModal");
+        const closeBtn = document.getElementById("closeModalBtn");
+
+        if (!instructionsBtn || !modal || !closeBtn) {
+          console.warn("Modal elements not found in DOM");
+          return;
+        }
+
+        instructionsBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          console.log("clicked"); // debugging
+          modal.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          modal.classList.add("hidden");
+        });
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            modal.classList.add("hidden");
+          }
+        });
+      });
     </script>
   </body>
 </html>
