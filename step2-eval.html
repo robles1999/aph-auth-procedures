@@ -490,7 +490,7 @@
               3
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-              <p class="font-medium text-gray-900 text-lg">Scheduling</p>
+              <p class="font-medium text-gray-900 text-lg">❓Scheduling</p>
               <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
                 <h2 class="font-medium text-gray-900 text-md">
                   Scheduling Status = Ready to Schedule
@@ -499,7 +499,7 @@
             </div>
           </div>
 
-          <!-- After Portal Step 4 -->
+          <!-- Step 4 Authorization -->
 
           <div class="flex items-start space-x-4">
             <div
@@ -508,51 +508,28 @@
               4
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-              <p class="font-medium text-gray-900 text-lg">Authorization</p>
+              <p class="font-medium text-gray-900 text-lg">❓Authorization</p>
               <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-                <h2 class="font-medium text-gray-900 text-md">
-                  Authorization Scenarios
-                </h2>
-
-                <!-- No Auth Required -->
                 <div class="text-gray-900 space-y-2">
-                  <p class="font-semibold">If no Auth Required:</p>
-                  <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>step</li>
-                    <li>step</li>
-                    <ul class="list-disc list-inside ml-6">
-                      <li>step</li>
-                      <li>step</li>
-                    </ul>
-                  </ul>
-                </div>
-
-                <!-- Authorized -->
-                <div class="text-gray-900 space-y-2">
-                  <p class="font-semibold">If Authorized:</p>
-                  <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>step</li>
-                    <li>step</li>
-                  </ul>
-                </div>
-
-                <!-- Pending or Manual Auth -->
-                <div class="text-gray-900 space-y-2">
-                  <p class="font-semibold">
-                    If Auth is PENDING or Manual Auth was submitted:
-                  </p>
-                  <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>step</li>
-                    <li>step</li>
-                    <li>step</li>
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Referral Counts:</span> # of
+                      visits approved
+                    </li>
+                    <li>
+                      <span class="font-bold"
+                        >Referral-Level Authorization Information: </span
+                      >Start Date of <span class="font-bold">Today</span> and
+                      Expiration Date of
+                      <span class="font-bold">Authorized Expiration Date</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- After Portal Step 5 -->
-
+          <!-- Step 5 Coverage Authorization -->
           <div class="flex items-start space-x-4">
             <div
               class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
@@ -561,8 +538,69 @@
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
               <p class="font-medium text-gray-900 text-lg">
-                Coverage Authorization
+                ❓Coverage Authorization
               </p>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <!-- <h2 class="font-medium text-gray-900 text-md">
+                  Authorization Scenarios
+                </h2> -->
+                <!-- PLACE HOLDER -->
+                <div class="text-gray-900 space-y-2">
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Auth #:</span> Enter received
+                      Authorization or Confirmation number
+                    </li>
+                    <li>
+                      <span class="font-bold">Authorized Dates: </span>Start
+                      Date of <span class="font-bold">Today</span> and
+                      Expiration Date of
+                      <span class="font-bold">Authorized Expiration Date</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- If No Auth Required -->
+                <div class="text-gray-900 space-y-2">
+                  <p class="font-semibold">Click on CPT/HCPCS</p>
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      <span class="font-bold">Service Code:</span> Enter the CPT
+                      code for the requested authorization
+                    </li>
+                    <li>
+                      <span class="font-bold">Auth #:</span> Enter received
+                      Authorization or Confirmation number
+                    </li>
+                    <li>
+                      <span class="font-bold">Authorized Dates: </span>Start
+                      Date of <span class="font-bold">Today</span> and
+                      Expiration Date of
+                      <span class="font-bold">Authorized Expiration Date</span>
+                    </li>
+                    <li>
+                      <span class="font-bold">Requested:</span> Enter the number
+                      of visits/units requested
+                    </li>
+                    <li>
+                      <span class="font-bold">Approved:</span> Enter the number
+                      of visits/units approved
+                    </li>
+                    <li>
+                      <span class="font-bold">+ add comments:</span>
+                      {discipline} AUTH APPROVED
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- PLACE HOLDER -->
+                <!-- <div class="text-gray-900 space-y-2">
+                  <p class="font-semibold">{PLACE HOLDER}</p>
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>{PLACE HOLDER}</li>
+                    <li>{PLACE HOLDER}</li>
+                  </ul>
+                </div> -->
+              </div>
             </div>
           </div>
         </div>
