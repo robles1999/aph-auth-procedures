@@ -126,7 +126,7 @@
 
       <!-- Script to disable the link on the card if Auth is not required -->
 
-      const evalLink = document.getElementById("eval-link");
+      /*       const evalLink = document.getElementById("eval-link");
 
       if (plan.evalAuth === false && evalLink) {
         // Create a wrapper div with the same classes as the <a> tag
@@ -155,6 +155,21 @@
         if (evalSub) {
           evalSub.classList.add("font-bold", "text-green-700", "text-lg");
         }
+      } else if (plan.evalAuth === "verification" && evalLink) {
+        // Change the href to point to step2-iv.html
+        evalLink.setAttribute("href", "step2-iv.html");
+      } */
+
+      const evalLink = document.getElementById("eval-link");
+
+      if (plan.evalAuth === false && evalLink) {
+        // Just change the href to point to step2-no-auth-required.html
+        evalLink.setAttribute("href", "step2-no-auth-required.html");
+
+        // Add font-bold class to the subtitle
+        //if (evalSub) {
+        //  evalSub.classList.add("font-bold", "text-green-700", "text-lg");
+        //}
       } else if (plan.evalAuth === "verification" && evalLink) {
         // Change the href to point to step2-iv.html
         evalLink.setAttribute("href", "step2-iv.html");
@@ -199,7 +214,7 @@
         trSub.textContent = "Proceed with treatment.";
       }
 
-      // Adds EVAL instructions if they exist
+      // Adds EVAL special instructions if they exist
 
       const evalInstructionsContainer =
         document.getElementById("eval-instructions");
@@ -216,7 +231,7 @@
         });
       }
 
-      // Add TREATMENT instructions if they exist
+      // Add TREATMENT special instructions if they exist
 
       const instructionsContainer =
         document.getElementById("treat-instructions");
