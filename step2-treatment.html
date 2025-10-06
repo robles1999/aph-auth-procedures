@@ -330,6 +330,11 @@
               <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
               <span>Frequency and duration</span>
             </li>
+            <!-- 👇 TREATMENT Special instructions will go here -->
+            <p
+              id="treat-instructions"
+              class="text-red-500 font-semibold text-sm mt-2 text-left"
+            ></p>
           </ul>
         </section>
       </div>
@@ -692,6 +697,20 @@
           }
         });
       });
+
+      // Add TREATMENT special instructions if they exist
+
+      const instructionsContainer =
+        document.getElementById("treat-instructions");
+      instructionsContainer.innerHTML = ""; // clear old content
+
+      if (plan.txSpecialInstructions && plan.txSpecialInstructions.length > 0) {
+        plan.txSpecialInstructions.forEach((instr) => {
+          const p = document.createElement("p");
+          p.textContent = instr;
+          instructionsContainer.appendChild(p);
+        });
+      }
     </script>
   </body>
 </html>
