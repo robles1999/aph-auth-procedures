@@ -161,7 +161,7 @@
       } */
 
       const evalLink = document.getElementById("eval-link");
-
+/*
       if (plan.evalAuth === false && evalLink) {
         // Just change the href to point to step2-no-auth-required.html
         evalLink.setAttribute("href", "step2-no-auth-required.html");
@@ -176,7 +176,22 @@
       } else if (plan.treatmentAuth === false && evalLink) {
         // Change the href to point to step2-iv.html
         evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
-      }
+      }*/
+
+      // Testing logic for selecting the correct step2 file
+      
+if (plan.evalAuth === false && evalLink) {
+  evalLink.setAttribute("href", "step2-no-auth-required.html");
+}
+
+if (plan.evalAuth === "verification" && evalLink) {
+  evalLink.setAttribute("href", "step2-iv.html");
+}
+
+if (plan.treatmentAuth === false && evalLink) {
+  evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
+}
+
 
       if (plan.evalAuth === false) {
         evalPill.textContent = "No Authorization Required";
@@ -250,4 +265,5 @@
     </script>
   </body>
 </html>
+
 
