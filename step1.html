@@ -173,6 +173,9 @@
       } else if (plan.evalAuth === "verification" && evalLink) {
         // Change the href to point to step2-iv.html
         evalLink.setAttribute("href", "step2-iv.html");
+      } else if (plan.treatmentAuth === false && evalLink) {
+        // Change the href to point to step2-iv.html
+        evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }
 
       if (plan.evalAuth === false) {
@@ -247,3 +250,4 @@
     </script>
   </body>
 </html>
+
