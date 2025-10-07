@@ -180,17 +180,17 @@
 
       // Testing logic for selecting the correct step2 file
       
-if (plan.evalAuth === false && evalLink) {
-  evalLink.setAttribute("href", "step2-no-auth-required.html");
-}
+      if (plan.evalAuth === false && evalLink) {
+        evalLink.setAttribute("href", "step2-no-auth-required.html");
+      }
 
-if (plan.evalAuth === "verification" && evalLink) {
-  evalLink.setAttribute("href", "step2-iv.html");
-}
+      if (plan.evalAuth === "verification" && evalLink) {
+        evalLink.setAttribute("href", "step2-iv.html");
+      }
 
-if (plan.treatmentAuth === false && evalLink) {
-  evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
-}
+      if (plan.treatmentAuth === false && evalLink) {
+        evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
+      }
 
 
       if (plan.evalAuth === false) {
@@ -265,5 +265,6 @@ if (plan.treatmentAuth === false && evalLink) {
     </script>
   </body>
 </html>
+
 
 
