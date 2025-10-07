@@ -83,7 +83,7 @@
         </a>
 
         <!-- Treatment Card -->
-        <a
+        <a id="tx-link"
           href="step2-treatment.html"
           onclick="localStorage.setItem('currentService','treatment')"
           class="w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-glass"
@@ -161,6 +161,7 @@
       } */
 
       const evalLink = document.getElementById("eval-link");
+      const txLink = document.getElementById("tx-link");
 /*
       if (plan.evalAuth === false && evalLink) {
         // Just change the href to point to step2-no-auth-required.html
@@ -189,7 +190,7 @@
       }
 
       if (plan.treatmentAuth === false && evalLink) {
-        evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
+        txLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }
 
 
@@ -265,6 +266,7 @@
     </script>
   </body>
 </html>
+
 
 
 
