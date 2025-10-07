@@ -217,6 +217,8 @@
       }
 
       // treatment pill & subtitle
+      // Correct the "else" portion of this logic to an "else-if"
+      // to account for when the treatmentAuth === to false
       const trPill = document.getElementById("treat-pill");
       const trSub = document.getElementById("treat-sub");
       if (plan.treatmentAuth) {
@@ -266,6 +268,7 @@
     </script>
   </body>
 </html>
+
 
 
 
