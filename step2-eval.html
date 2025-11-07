@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-	  <link href="life_8868458-64px.png" rel="icon" type="image/png"/>
+    <link href="life_8868458-64px.png" rel="icon" type="image/png" />
     <title>Evaluation Steps</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -547,12 +547,23 @@
                 <div class="text-gray-900 space-y-2">
                   <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
                     <li><span class="font-bold">Referral Counts:</span> 150</li>
+                    <li><span class="font-bold">Auth Override:</span> 150</li>
                     <li>
                       <span class="font-bold"
-                        >Referral-Level Authorization Information: </span
-                      >Start Date of <span class="font-bold">Today</span> and
-                      Expiration Date of
-                      <span class="font-bold">Authorized Expiration Date</span>
+                        >Referral-Level Authorization Information:
+                      </span>
+                      <!-- Start and End dates list -->
+                      <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                        <li>
+                          Start Date of
+                          <span class="font-bold">Beginning of Year</span>
+                        </li>
+                        <li>
+                          Expiration Date of
+                          <span class="font-bold">End of Year</span>
+                        </li>
+                      </ul>
+                      <!-- End of Start and End dates list -->
                     </li>
                   </ul>
                 </div>
@@ -602,19 +613,30 @@
                       <span class="font-bold">Service Code:</span> Enter the CPT
                       code for the requested authorization
                     </li>
-					<li>
+                    <li>
                       <span class="font-bold">Auth Status:</span> Authorized
                     </li>
                     <li>
                       <span class="font-bold">Auth #:</span> Enter received
                       Authorization or Confirmation number
                     </li>
+
+                    <!-- Beginning of authorize dates -->
                     <li>
-                      <span class="font-bold">Authorized Dates: </span>Start
-                      Date of <span class="font-bold">Today</span> and
-                      Expiration Date of
-                      <span class="font-bold">Authorized Expiration Date</span>
+                      <span class="font-bold">Authorized Dates: </span>
+                      <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                        <li>
+                          Start Date of
+                          <span class="font-bold">Issue Date</span>
+                        </li>
+                        <li>
+                          Expiration Date of
+                          <span class="font-bold">Authorized Expiration Date</span>
+                        </li>
+                      </ul>
                     </li>
+                    <!-- End of authorize dates -->
+                     
                     <li>
                       <span class="font-bold">Requested:</span> Enter the number
                       of visits/units requested
@@ -723,5 +745,3 @@
     </script>
   </body>
 </html>
-
-
