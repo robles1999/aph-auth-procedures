@@ -180,6 +180,27 @@
         evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }*/
 
+      // ---- Disable Treatment card if Undetermined (add this BEFORE the 3 ifs below) ----
+      if (plan.treatmentAuth === "Undetermined" && txLink) {
+        // 1) Remove navigation
+        txLink.removeAttribute("href");
+      
+        // 2) Block mouse/keyboard activation
+        txLink.style.pointerEvents = "none";
+        txLink.setAttribute("aria-disabled", "true");
+        txLink.setAttribute("tabindex", "-1");
+        txLink.addEventListener("click", (e) => e.preventDefault());
+      
+        // 3) Remove hover/animation/pointer hand; keep layout intact
+        txLink.classList.remove(
+          "hover:scale-105",
+          "hover:-translate-y-1",
+          "cursor-pointer"
+        );
+        txLink.classList.add("cursor-default");
+      }
+      
+
       // Testing logic for selecting the correct step2 file
       
       if (plan.evalAuth === false && evalLink) {
@@ -295,6 +316,7 @@
     </script>
   </body>
 </html>
+
 
 
 
