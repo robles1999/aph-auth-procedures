@@ -222,6 +222,7 @@
       // to account for when the treatmentAuth === to false
       const trPill = document.getElementById("treat-pill");
       const trSub = document.getElementById("treat-sub");
+      /*
       if (plan.treatmentAuth) {
         trPill.textContent = "Authorization Required";
         trPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
@@ -235,6 +236,31 @@
         );
         trSub.textContent = "Proceed with treatment.";
       }
+      */
+      if (plan.treatmentAuth === true) {
+        trPill.textContent = "Authorization Required";
+        trPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
+        trSub.textContent = "Submit auth before treatment.";
+      } 
+      else if (plan.treatmentAuth === false) {
+        trPill.textContent = "No Authorization Required";
+        trPill.classList.add(
+          "bg-green-100",
+          "text-green-700",
+          "border-green-300"
+      );
+      trSub.textContent = "Proceed with treatment.";
+    } 
+    else if (plan.treatmentAuth === "Undetermined") {
+      trPill.textContent = "Undetermined";
+      trPill.classList.add(
+        "bg-amber-100",
+        "text-amber-800",
+        "border-amber-300"
+    );
+      trSub.textContent = "Status unclear — verify requirements.";
+    }
+
 
       // Adds EVAL special instructions if they exist
 
@@ -269,6 +295,7 @@
     </script>
   </body>
 </html>
+
 
 
 
