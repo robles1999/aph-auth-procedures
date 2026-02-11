@@ -317,7 +317,7 @@
 
       localStorage.setItem("insurancePlans", JSON.stringify(insurancePlans));
       const container = document.getElementById("planContainer");
-
+/*
       function createCard(name, data) {
         const evalText =
           data.evalAuth === true
@@ -368,7 +368,68 @@
       `;
         return card;
       }
+*/
 
+      function createCard(name, data) {
+        const evalText =
+          data.evalAuth === true
+            ? "Auth Required"
+            : data.evalAuth === false
+            ? "No Auth or IV"
+            : "IV Needed";
+      
+        const evalColor =
+          data.evalAuth === true
+            ? "border-rose-500 bg-rose-50 text-rose-600"
+            : data.evalAuth === false
+            ? "border-green-300 bg-green-100 text-green-700"
+            : data.evalAuth === "verification"
+            ? "border-rose-500 bg-blue-100 text-blue-700"
+            : "";
+      
+        // ✅ Updated to include Undetermined (amber)
+        const treatColor =
+          data.treatmentAuth === true
+            ? "border-rose-500 bg-rose-50 text-rose-600"
+            : data.treatmentAuth === false
+            ? "border-green-300 bg-green-100 text-green-700"
+            : String(data.treatmentAuth).toLowerCase() === "undetermined"
+            ? "border-amber-300 bg-amber-100 text-amber-800"
+            : "border-gray-300 bg-gray-100 text-gray-700";
+      
+        // (Optional) explicit treat text
+        const treatText =
+          data.treatmentAuth === true
+            ? "Auth Required"
+            : data.treatmentAuth === false
+            ? "No Auth Required"
+            : String(data.treatmentAuth).toLowerCase() === "undetermined"
+            ? "Undetermined"
+            : String(data.treatmentAuth);
+      
+        const card = document.createElement("a");
+        card.href = "step1.html";
+        card.onclick = () => localStorage.setItem("currentPlanName", name);
+        card.className =
+          "w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 " +
+          "shadow-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-300";
+      
+        card.innerHTML = `
+          <div class="text-center">
+            <div class="text-4xl mb-3">${data.logo}</div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">${name}</h3>
+            <p class="text-sm text-gray-500 mb-4">${data.category}</p>
+            <div class="inline-block text-sm px-3 py-1 rounded-full ${evalColor} mb-2">
+              <span class="font-bold">Eval:</span> ${evalText}
+            </div>
+            <div class="inline-block text-sm px-3 py-1 rounded-full ${treatColor}">
+              <span class="font-bold">Treat:</span> ${treatText}
+            </div>
+          </div>
+        `;
+        return card;
+      }
+      
       function renderCards(filter = "") {
         container.innerHTML = "";
         Object.entries(insurancePlans).forEach(([name, data]) => {
@@ -386,6 +447,7 @@
     </script>
   </body>
 </html>
+
 
 
 
