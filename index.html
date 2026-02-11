@@ -196,6 +196,18 @@
           evalSpecialInstructions: [],
           txSpecialInstructions: [],
         },
+        Oscar: {
+          category: "Commercial Insurance",
+          logo: "🏥",
+          evalAuth: true,
+          treatmentAuth: "Pending",
+          ivPortalUrl:
+            "https://accounts.hioscar.com/account/login/",
+          txPortalUrl:
+            "https://accounts.hioscar.com/account/login/",
+          evalSpecialInstructions: ["⚠️ Oscar Advent Health is not In-Network with OH"],
+          txSpecialInstructions: ["⚠️ Oscar Advent Health is not In-Network with OH"],
+        },        
         Simply: {
           category: "Medicaid Managed Care",
           logo: "🏥",
@@ -344,7 +356,12 @@
           </div>
           <div class="inline-block text-sm px-3 py-1 rounded-full ${treatColor}">
             <span class="font-bold">Treat:</span> ${
-              data.treatmentAuth ? "Auth Required" : "No Auth Required"
+             // data.treatmentAuth ? "Auth Required" : "No Auth Required"
+              data.treatmentAuth === true
+                ? "Auth Required"
+                : data.treatmentAuth === false
+                ? "No Auth Required"
+                : data.treatmentAuth
             }
           </div>
         </div>
@@ -369,6 +386,7 @@
     </script>
   </body>
 </html>
+
 
 
 
