@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Plan Overview</title>
-    life_8868458-64px.png
+    <link href="life_8868458-64px.png" rel="icon" type="image/png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Tailwind + Extended Config -->
@@ -25,20 +25,29 @@
         },
       };
     </script>
-    https://cdn.tailwindcss.com</script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Font: Inter -->
-    https://fonts.googleapis.com
-    https://fonts.gstatic.com
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
--gray-900 font-sans">
+    />
+  </head>
+
+  <body class="bg-gray-100 text-gray-900 font-sans">
     <main class="p-6 max-w-5xl mx-auto">
       <!-- Back to All Plans -->
       <a
         href="index.html"
-        class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/90 backdropard -->
+        class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition"
+      >
+        <span class="text-lg leading-none">←</span>
+        All Plans
+      </a>
+
+      <!-- Plan Card -->
       <div
         class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-8 text-center shadow-lg"
       >
@@ -54,7 +63,14 @@
           id="eval-link"
           href="step2-eval.html"
           onclick="localStorage.setItem('currentService','eval')"
-          class="w-72 bg-white/90 backdrop-blur-sm     class="inline-block text-sm px-3 py-1 rounded-full border mx-auto mb-3"
+          class="w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-glass"
+        >
+          <h4 class="text-2xl font-semibold mb-6">
+            Evaluation Visit <span>🩺</span>
+          </h4>
+          <div
+            id="eval-pill"
+            class="inline-block text-sm px-3 py-1 rounded-full border mx-auto mb-3"
           >
             Status
           </div>
@@ -68,7 +84,11 @@
         </a>
 
         <!-- Treatment Card -->
-        step2-treatment.html
+        <a id="tx-link"
+          href="step2-treatment.html"
+          onclick="localStorage.setItem('currentService','treatment')"
+          class="w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-glass"
+        >
           <h4 class="text-2xl font-semibold mb-6">
             Treatment Visit <span>💊</span>
           </h4>
@@ -90,151 +110,142 @@
     </main>
 
     <script>
-      // =======================
-      // Data pull and header
-      // =======================
+      // pull dataset and current plan
       const plans = JSON.parse(localStorage.getItem("insurancePlans") || "{}");
       const name = localStorage.getItem("currentPlanName") || "";
       const plan = plans[name] || {};
 
+      // fill header card
       document.getElementById("plan-logo").textContent = plan.logo || "🏥";
       document.getElementById("plan-name").textContent = name;
-      document.getElementById("plan-category").textContent = plan.category || "";
+      document.getElementById("plan-category").textContent =
+        plan.category || "";
 
-      // =======================
-      // DOM refs
-      // =======================
+      // evaluation pill & subtitle
       const evalPill = document.getElementById("eval-pill");
-      const evalSub  = document.getElementById("eval-sub");
-      const evalLink = document.getElementById("eval-link");
+      const evalSub = document.getElementById("eval-sub");
 
-      const trPill = document.getElementById("treat-pill");
-      const trSub  = document.getElementById("treat-sub");
-      const txLink = document.getElementById("tx-link");
+      <!-- Script to disable the link on the card if Auth is not required -->
 
-      // =======================
-      // Helpers
-      // =======================
-      function resetStatusClasses(el) {
-        if (!el) return;
-        el.classList.remove(
-          "bg-red-100","text-red-700","border-red-300",
-          "bg-green-100","text-green-700","border-green-300",
-          "bg-amber-100","text-amber-800","border-amber-300",
-          "bg-gray-100","text-gray-700","border-gray-300",
-          "bg-blue-100","text-blue-700","border-blue-300",
-          "border"
-        );
-      }
+      /*       const evalLink = document.getElementById("eval-link");
 
-      // Replace an <a> with a <div> to disable click & hover cursor
-      function replaceLinkWithDiv(anchorEl) {
-        if (!anchorEl || anchorEl.tagName !== "A") return anchorEl;
+      if (plan.evalAuth === false && evalLink) {
+        // Create a wrapper div with the same classes as the <a> tag
+        const wrapper = document.createElement("div");
+        wrapper.id = "eval-link";
 
-        const div = document.createElement("div");
-        div.id = anchorEl.id;
-
-        // Remove hover/transform/transition/cursor-pointer for non-interactive look
-        const classes = anchorEl.className
-          .split(/\s+/)
-          .filter(cls =>
+        // Copy classes but remove hover-related ones
+        const originalClasses = evalLink.className.split(" ");
+        const filteredClasses = originalClasses.filter(
+          (cls) =>
             !cls.startsWith("hover:") &&
             cls !== "transform" &&
-            !cls.startsWith("transition") &&
-            !cls.startsWith("duration-") &&
-            !cls.startsWith("ease-") &&
-            cls !== "cursor-pointer"
-          );
+            cls !== "transition-all"
+        );
+        wrapper.className = filteredClasses.join(" ");
 
-        // Neutral cursor
-        classes.push("cursor-default");
-        div.className = classes.join(" ");
-
-        // Move children
-        while (anchorEl.firstChild) {
-          div.appendChild(anchorEl.firstChild);
+        // Move all child elements from <a> to the new <div>
+        while (evalLink.firstChild) {
+          wrapper.appendChild(evalLink.firstChild);
         }
 
-        anchorEl.replaceWith(div);
-        return div;
-      }
+        // Replace the <a> tag with the new <div>
+        evalLink.replaceWith(wrapper);
 
-      // =======================
-      // Evaluation routing
-      // =======================
+        // Add font-bold class to the subtitle
+        if (evalSub) {
+          evalSub.classList.add("font-bold", "text-green-700", "text-lg");
+        }
+      } else if (plan.evalAuth === "verification" && evalLink) {
+        // Change the href to point to step2-iv.html
+        evalLink.setAttribute("href", "step2-iv.html");
+      } */
+
+      const evalLink = document.getElementById("eval-link");
+      const txLink = document.getElementById("tx-link");
+/*
+      if (plan.evalAuth === false && evalLink) {
+        // Just change the href to point to step2-no-auth-required.html
+        evalLink.setAttribute("href", "step2-no-auth-required.html");
+
+        // Add font-bold class to the subtitle
+        //if (evalSub) {
+        //  evalSub.classList.add("font-bold", "text-green-700", "text-lg");
+        //}
+      } else if (plan.evalAuth === "verification" && evalLink) {
+        // Change the href to point to step2-iv.html
+        evalLink.setAttribute("href", "step2-iv.html");
+      } else if (plan.treatmentAuth === false && evalLink) {
+        // Change the href to point to step2-iv.html
+        evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
+      }*/
+
+      // Testing logic for selecting the correct step2 file
+      
       if (plan.evalAuth === false && evalLink) {
         evalLink.setAttribute("href", "step2-no-auth-required.html");
-      } else if (plan.evalAuth === "verification" && evalLink) {
+      }
+
+      if (plan.evalAuth === "verification" && evalLink) {
         evalLink.setAttribute("href", "step2-iv.html");
       }
 
-      // =======================
-      // Treatment routing
-      // =======================
-      const trAuth = plan.treatmentAuth;
-
-      if (trAuth === false && txLink) {
-        // No auth required → direct to the simple treatment flow
+      if (plan.treatmentAuth === false && evalLink) {
         txLink.setAttribute("href", "step2-no-auth-req-treatment.html");
-      } else if (String(trAuth).toLowerCase() === "undetermined" && txLink) {
-        // Disable navigation entirely
-        const txCardDiv = replaceLinkWithDiv(txLink);
-        txCardDiv.setAttribute("title", "Authorization status is undetermined");
-        // No href assigned — it's now a non-clickable card.
-      } else if (txLink) {
-        // Default treatment flow (auth required)
-        txLink.setAttribute("href", "step2-treatment.html");
       }
 
-      // =======================
-      // Evaluation pill
-      // =======================
-      resetStatusClasses(evalPill);
+
       if (plan.evalAuth === false) {
         evalPill.textContent = "No Authorization Required";
-        evalPill.classList.add("bg-green-100","text-green-700","border","border-green-300");
+        evalPill.classList.add(
+          "bg-green-100",
+          "text-green-700",
+          "border-green-300"
+        );
         evalSub.textContent = "Proceed with evaluation.";
       } else if (plan.evalAuth === "verification") {
         evalPill.textContent = "Verification Required";
-        evalPill.classList.add("bg-blue-100","text-blue-700","border","border-blue-300");
+        evalPill.classList.add(
+          "bg-blue-100",
+          "text-blue-700",
+          "border-blue-300"
+        );
         evalSub.textContent = "Verify insurance before eval.";
       } else {
         evalPill.textContent = "Authorization Required";
-        evalPill.classList.add("bg-red-100","text-red-700","border","border-red-300");
+        evalPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
         evalSub.textContent = "Submit auth before evaluation.";
       }
 
-      // =======================
-      // Treatment pill
-      // =======================
-      resetStatusClasses(trPill);
-
-      if (trAuth === true) {
+      // treatment pill & subtitle
+      // Correct the "else" portion of this logic to an "else-if"
+      // to account for when the treatmentAuth === to false
+      const trPill = document.getElementById("treat-pill");
+      const trSub = document.getElementById("treat-sub");
+      if (plan.treatmentAuth) {
         trPill.textContent = "Authorization Required";
-        trPill.classList.add("bg-red-100","text-red-700","border","border-red-300");
+        trPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
         trSub.textContent = "Submit auth before treatment.";
-      } else if (trAuth === false) {
-        trPill.textContent = "No Authorization Required";
-        trPill.classList.add("bg-green-100","text-green-700","border","border-green-300");
-        trSub.textContent = "Proceed with treatment.";
-      } else if (String(trAuth).toLowerCase() === "undetermined") {
-        trPill.textContent = "Authorization Undetermined";
-        trPill.classList.add("bg-amber-100","text-amber-800","border","border-amber-300");
-        trSub.textContent = "Status unclear—verify requirements.";
       } else {
-        // Fallback (not expected with your constraints)
-        trPill.textContent = "Authorization Unknown";
-        trPill.classList.add("bg-gray-100","text-gray-700","border","border-gray-300");
-        trSub.textContent = "No status available—check documentation.";
+        trPill.textContent = "No Authorization Required";
+        trPill.classList.add(
+          "bg-green-100",
+          "text-green-700",
+          "border-green-300"
+        );
+        trSub.textContent = "Proceed with treatment.";
       }
 
-      // =======================
-      // EVAL special instructions
-      // =======================
-      const evalInstructionsContainer = document.getElementById("eval-instructions");
-      evalInstructionsContainer.innerHTML = "";
+      // Adds EVAL special instructions if they exist
 
-      if (Array.isArray(plan.evalSpecialInstructions) && plan.evalSpecialInstructions.length > 0) {
+      const evalInstructionsContainer =
+        document.getElementById("eval-instructions");
+      evalInstructionsContainer.innerHTML = ""; // clear old content
+
+      if (
+        plan.evalSpecialInstructions &&
+        plan.evalSpecialInstructions.length > 0
+      ) {
         plan.evalSpecialInstructions.forEach((instr) => {
           const p = document.createElement("p");
           p.textContent = instr;
@@ -242,13 +253,13 @@
         });
       }
 
-      // =======================
-      // TREATMENT special instructions
-      // =======================
-      const instructionsContainer = document.getElementById("treat-instructions");
-      instructionsContainer.innerHTML = "";
+      // Add TREATMENT special instructions if they exist
 
-      if (Array.isArray(plan.txSpecialInstructions) && plan.txSpecialInstructions.length > 0) {
+      const instructionsContainer =
+        document.getElementById("treat-instructions");
+      instructionsContainer.innerHTML = ""; // clear old content
+
+      if (plan.txSpecialInstructions && plan.txSpecialInstructions.length > 0) {
         plan.txSpecialInstructions.forEach((instr) => {
           const p = document.createElement("p");
           p.textContent = instr;
@@ -258,3 +269,9 @@
     </script>
   </body>
 </html>
+
+
+
+
+
+
