@@ -180,6 +180,26 @@
         evalLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }*/
 
+      // ---- Disable Evaluation card if Undetermined (matches Treatment handling) ----
+      if (plan.evalAuth === "Undetermined" && evalLink) {
+        // 1) Remove navigation
+        evalLink.removeAttribute("href");
+      
+        // 2) Block mouse/keyboard activation
+        evalLink.style.pointerEvents = "none";
+        evalLink.setAttribute("aria-disabled", "true");
+        evalLink.setAttribute("tabindex", "-1");
+        evalLink.addEventListener("click", (e) => e.preventDefault());
+      
+        // 3) Remove hover/animation/pointer hand; keep layout intact
+        evalLink.classList.remove(
+          "hover:scale-105",
+          "hover:-translate-y-1",
+          "cursor-pointer"
+        );
+        evalLink.classList.add("cursor-default");
+      }
+      
       // ---- Disable Treatment card if Undetermined (add this BEFORE the 3 ifs below) ----
       if (plan.treatmentAuth === "Undetermined" && txLink) {
         // 1) Remove navigation
@@ -215,7 +235,7 @@
         txLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }
 
-
+/*
       if (plan.evalAuth === false) {
         evalPill.textContent = "No Authorization Required";
         evalPill.classList.add(
@@ -237,7 +257,36 @@
         evalPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
         evalSub.textContent = "Submit auth before evaluation.";
       }
-
+*/
+      if (plan.evalAuth === false) {
+        evalPill.textContent = "No Authorization Required";
+        evalPill.classList.add(
+          "bg-green-100",
+          "text-green-700",
+          "border-green-300"
+        );
+        evalSub.textContent = "Proceed with evaluation.";
+      } else if (plan.evalAuth === "verification") {
+        evalPill.textContent = "Verification Required";
+        evalPill.classList.add(
+          "bg-blue-100",
+          "text-blue-700",
+          "border-blue-300"
+        );
+        evalSub.textContent = "Verify insurance before eval.";
+      } else if (String(plan.evalAuth).toLowerCase() === "undetermined") {
+        evalPill.textContent = "Undetermined";
+        evalPill.classList.add(
+          "bg-amber-100",
+          "text-amber-800",
+          "border-amber-300"
+        );
+        evalSub.textContent = "Status unclear — verify requirements.";
+      } else {
+        evalPill.textContent = "Authorization Required";
+        evalPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
+        evalSub.textContent = "Submit auth before evaluation.";
+      }      
       // treatment pill & subtitle
       // Correct the "else" portion of this logic to an "else-if"
       // to account for when the treatmentAuth === to false
@@ -316,6 +365,7 @@
     </script>
   </body>
 </html>
+
 
 
 
