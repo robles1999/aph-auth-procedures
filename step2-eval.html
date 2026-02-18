@@ -157,7 +157,7 @@
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
               <p class="font-medium text-gray-900">
-                Gather required RX document (print and/or save to computer).
+                Make sure we have a valid RX (Prescription/Referral) on file, print and/or save to computer as it might be needed to request auth. <br><br>If a valid RX is not available, follow established process to request an updated RX from the provider.
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
               <p class="font-medium text-gray-900">
-                Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal.
+                Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal. <br><br>If the RTE is used, it is a good idea to also review the <span class="font-bold">Response History</span> to check for any alerts or issues with the insurance that may require follow-up.
               </p>
             </div>
           </div>
@@ -456,20 +456,21 @@
                   <p class="font-semibold">If no Auth Required:</p>
                   <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
                     <li>
-                      <span class="font-bold">Add a PB Note</span>: PER ONLINE
+                      <span class="font-bold">Add a Rehab Note</span>: SmartPhrase 👉 <span class="font-semibold">REHABNOTE</span>
+                      <br>PER ONLINE
                       RESPONSE FROM {insurance}. NO AUTH REQUIRED.
                     </li>
                     <li>
-                      <span class="font-bold">Scan the Portal result then</span
-                      >:
+                      Copy the Portal result and paste it into the Rehab Note
                     </li>
+                    <!--
                     <ul class="list-disc list-outside pl-5 ml-6">
                       <li>Import document into Epic</li>
                       <li>
                         <span class="font-bold">Document Description</span>:
                         RESPONSE FROM {insurance}
                       </li>
-                    </ul>
+                    </ul>-->
                   </ul>
                 </div>
 
@@ -478,11 +479,11 @@
                   <p class="font-semibold">If Authorized:</p>
                   <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
                     <li>
-                      <span class="font-bold">Add a rehab auth summary approval note</span>: SmartPhrase 👉 <span class="font-semibold">REHABAUTHAPPRVL</span>
+                      <span class="font-bold">Add a Rehab Auth Summary Approval note</span>: SmartPhrase 👉 <span class="font-semibold">REHABAUTHAPPRVL</span>
                     </li>
                     <li>
-                      Add and fillout the
-                      <span class="font-bold">REHABAUTHAPPRVL</span> note
+                      Fill out the 
+                      <span class="font-bold">REHABAUTHAPPRVL</span> note with the information received in the authorization response.
                     </li>
                   </ul>
                 </div>
@@ -494,7 +495,7 @@
                   </p>
                   <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
                     <li>
-                      <span class="font-bold">Add a rehab auth pending note</span>: SmartPhrase 👉 <span class="font-semibold">REHABAUTHPEND</span>
+                      <span class="font-bold">Add a Rehab Auth Pending note</span>: SmartPhrase 👉 <span class="font-semibold">REHABAUTHPEND</span>
                     </li>
                     <li>
                       Referral Icon

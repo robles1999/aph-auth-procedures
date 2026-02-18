@@ -157,7 +157,7 @@
             </div>
             <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
               <p class="font-medium text-gray-900">
-                Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal.
+                Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal. <br><br>If the RTE is used, it is a good idea to also review the <span class="font-bold">Response History</span> to check for any alerts or issues with the insurance that may require follow-up.
               </p>
             </div>
           </div>
@@ -441,7 +441,7 @@
               <p class="font-medium text-gray-900 text-lg">
                 Benefit Collection ☂
                 <span class="font-semibold"
-                  >(in pt registration under More)</span
+                  >(in the patient registration under More)</span
                 >
               </p>
               <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
@@ -478,14 +478,14 @@
               <p class="font-medium text-gray-900 text-lg">
                 Estimates 💵
                 <span class="font-semibold"
-                  >(in pt registration under More)</span
+                  >(in the patient registration under More)</span
                 >
               </p>
               <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
                 <!-- No Auth Required -->
                 <div class="text-gray-900 space-y-2">
                   <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>Add HB Procedure</li>
+                    <li>Add an <span class="font-bold">HB Procedure</span></li>
                     <li>
                       <span class="font-bold"
                         >Hospital Individual Procedures:</span
@@ -493,7 +493,7 @@
                       Generate estimate for each discipline CPT code auth was
                       requested
                     </li>
-                    <li>Make sure <span class="font-semibold">Service Type </span>matches discipline</li>
+                    <li>Make sure <span class="font-bold">Service Type </span>matches discipline</li>
                   </ul>
                 </div>
               </div>
@@ -561,12 +561,14 @@
                 <div class="text-gray-900 space-y-2">
                   <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
                     <li>
-                      <span class="font-bold">Referral Counts:</span>
-                      <span class="font-semibold">Requested</span> and
-                      <span class="font-semibold">Authorized Override</span>
-                      fields will be the amount of visits allowed per the portal
-                      eligibility inquiry
+                      <span class="font-bold">Referral Counts:</span><br>
+                      <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                      <li><span class="font-bold">Requested:</span> visits requested </li>
+                      
+                      <li><span class="font-bold">Authorized Override:</span> visits allowed per the portal
+                      eligibility inquiry</li></ul>
                     </li>
+                    <br>
                     <li>
                       <span class="font-bold"
                         >Referral-Level Authorization Information (dates should reflect this year):
@@ -584,10 +586,33 @@
                       </ul>
                       <!-- End of Start and End dates list -->
                     </li>
+                    <br>
                     <li>
                       <span class="font-bold">Comment:</span> (examples 35/35
                       COMBINED VISITS, 10 VISITS, etc...) If unlimited visits enter "UNLIMITED
                       VISITS"
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- After Portal Step 6 Scheduling -->
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
+            >
+              7
+            </div>
+            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
+              <p class="font-medium text-gray-900 text-lg">IV Flag 🚩</p>
+              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
+                <!-- No Auth Required -->
+                <div class="text-gray-900 space-y-2">
+                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
+                    <li>
+                      Add a flag to the account to show the insurance information for this year has been collected. <br>SmartPhrase 👉 <span class="font-semibold">????????</span>
                     </li>
                   </ul>
                 </div>
