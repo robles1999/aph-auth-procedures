@@ -56,11 +56,18 @@
           />
         </div>
       </header>
-
+      <!--
       <section
         id="planContainer"
         class="flex flex-wrap justify-center gap-6"
+      ></section> -->
+      
+      <!-- With this: -->
+      <section
+        id="planContainer"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       ></section>
+
     </main>
 
     <script>
@@ -497,8 +504,12 @@
         card.href = "step1.html";
         card.onclick = () => localStorage.setItem("currentPlanName", name);
         card.className =
-          "w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 " +
-          "shadow-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-300";
+          
+        "w-full bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 " +
+          "shadow-lg transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-200";
+      //
+      //    "w-72 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 " +
+      //    "shadow-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-300";
       
         card.innerHTML = `
           <div class="text-center">
@@ -533,6 +544,7 @@
     </script>
   </body>
 </html>
+
 
 
 
