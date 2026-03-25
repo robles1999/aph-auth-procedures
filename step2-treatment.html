@@ -768,6 +768,7 @@
         plan.txSpecialInstructions.forEach((instr) => {
           const p = document.createElement("p");
           p.textContent = instr;
+          p.className = "whitespace-pre-line";
           instructionsContainer.appendChild(p);
         });
       }
