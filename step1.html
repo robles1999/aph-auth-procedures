@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Plan Overview</title>
-    <link href="life_8868458-64px.png" rel="icon" type="image/png"/>
+    <link href="life_8868458-64px.png" rel="icon" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Tailwind + Extended Config -->
@@ -52,11 +52,10 @@
       <div
         class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-8 text-center shadow-lg"
       > -->
-        
+
       <div
         class="max-w-md mx-auto bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-10 text-center shadow-lg"
       >
-
         <div id="plan-logo" class="text-4xl mb-2">🏥</div>
         <h3 id="plan-name" class="text-2xl font-bold mb-1">Plan Name</h3>
         <p id="plan-category" class="text-gray-600 mb-4">Category</p>
@@ -68,7 +67,7 @@
         <a
           id="eval-link"
           href="step2-eval.html"
-          onclick="localStorage.setItem('currentService','eval')"
+          onclick="localStorage.setItem('currentService', 'eval')"
           class="w-96 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-glass"
         >
           <h4 class="text-2xl font-semibold mb-6">
@@ -83,7 +82,7 @@
           <p id="eval-sub" class="text-gray-600 text-sm">Subtitle</p>
 
           <!-- 👇 EVAL Special instructions will go here -->
-          <br>
+          <br />
           <p
             id="eval-instructions"
             class="text-red-500 font-semibold text-sm mt-2 text-left"
@@ -91,9 +90,10 @@
         </a>
 
         <!-- Treatment Card -->
-        <a id="tx-link"
+        <a
+          id="tx-link"
           href="step2-treatment.html"
-          onclick="localStorage.setItem('currentService','treatment')"
+          onclick="localStorage.setItem('currentService', 'treatment')"
           class="w-96 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 text-center transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-glass"
         >
           <h4 class="text-2xl font-semibold mb-6">
@@ -108,7 +108,7 @@
           <p id="treat-sub" class="text-gray-600 text-sm">Subtitle</p>
 
           <!-- 👇 TREATMENT Special instructions will go here -->
-          <br>
+          <br />
           <p
             id="treat-instructions"
             class="text-red-500 font-semibold text-sm mt-2 text-left"
@@ -171,7 +171,7 @@
 
       const evalLink = document.getElementById("eval-link");
       const txLink = document.getElementById("tx-link");
-/*
+      /*
       if (plan.evalAuth === false && evalLink) {
         // Just change the href to point to step2-no-auth-required.html
         evalLink.setAttribute("href", "step2-no-auth-required.html");
@@ -192,45 +192,44 @@
       if (plan.evalAuth === "Undetermined" && evalLink) {
         // 1) Remove navigation
         evalLink.removeAttribute("href");
-      
+
         // 2) Block mouse/keyboard activation
         evalLink.style.pointerEvents = "none";
         evalLink.setAttribute("aria-disabled", "true");
         evalLink.setAttribute("tabindex", "-1");
         evalLink.addEventListener("click", (e) => e.preventDefault());
-      
+
         // 3) Remove hover/animation/pointer hand; keep layout intact
         evalLink.classList.remove(
           "hover:scale-105",
           "hover:-translate-y-1",
-          "cursor-pointer"
+          "cursor-pointer",
         );
         evalLink.classList.add("cursor-default");
       }
-      
+
       // ---- Disable Treatment card if Undetermined (add this BEFORE the 3 ifs below) ----
       if (plan.treatmentAuth === "Undetermined" && txLink) {
         // 1) Remove navigation
         txLink.removeAttribute("href");
-      
+
         // 2) Block mouse/keyboard activation
         txLink.style.pointerEvents = "none";
         txLink.setAttribute("aria-disabled", "true");
         txLink.setAttribute("tabindex", "-1");
         txLink.addEventListener("click", (e) => e.preventDefault());
-      
+
         // 3) Remove hover/animation/pointer hand; keep layout intact
         txLink.classList.remove(
           "hover:scale-105",
           "hover:-translate-y-1",
-          "cursor-pointer"
+          "cursor-pointer",
         );
         txLink.classList.add("cursor-default");
       }
-      
 
       // Testing logic for selecting the correct step2 file
-      
+
       if (plan.evalAuth === false && evalLink) {
         evalLink.setAttribute("href", "step2-no-auth-required.html");
       }
@@ -243,7 +242,7 @@
         txLink.setAttribute("href", "step2-no-auth-req-treatment.html");
       }
 
-/*
+      /*
       if (plan.evalAuth === false) {
         evalPill.textContent = "No Authorization Required";
         evalPill.classList.add(
@@ -271,7 +270,7 @@
         evalPill.classList.add(
           "bg-green-100",
           "text-green-700",
-          "border-green-300"
+          "border-green-300",
         );
         evalSub.textContent = "Proceed with evaluation.";
       } else if (plan.evalAuth === "verification") {
@@ -279,7 +278,7 @@
         evalPill.classList.add(
           "bg-blue-100",
           "text-blue-700",
-          "border-blue-300"
+          "border-blue-300",
         );
         evalSub.textContent = "Verify insurance before eval.";
       } else if (String(plan.evalAuth).toLowerCase() === "undetermined") {
@@ -287,14 +286,14 @@
         evalPill.classList.add(
           "bg-amber-100",
           "text-amber-800",
-          "border-amber-300"
+          "border-amber-300",
         );
         evalSub.textContent = "Status unclear — verify requirements.";
       } else {
         evalPill.textContent = "Authorization Required";
         evalPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
         evalSub.textContent = "Submit auth before evaluation.";
-      }      
+      }
       // treatment pill & subtitle
       // Correct the "else" portion of this logic to an "else-if"
       // to account for when the treatmentAuth === to false
@@ -319,26 +318,23 @@
         trPill.textContent = "Authorization Required";
         trPill.classList.add("bg-red-100", "text-red-700", "border-red-300");
         trSub.textContent = "Submit auth before treatment.";
-      } 
-      else if (plan.treatmentAuth === false) {
+      } else if (plan.treatmentAuth === false) {
         trPill.textContent = "No Authorization Required";
         trPill.classList.add(
           "bg-green-100",
           "text-green-700",
-          "border-green-300"
-      );
-      trSub.textContent = "Proceed with treatment.";
-    } 
-    else if (plan.treatmentAuth === "Undetermined") {
-      trPill.textContent = "Undetermined";
-      trPill.classList.add(
-        "bg-amber-100",
-        "text-amber-800",
-        "border-amber-300"
-    );
-      trSub.textContent = "Status unclear — verify requirements.";
-    }
-
+          "border-green-300",
+        );
+        trSub.textContent = "Proceed with treatment.";
+      } else if (plan.treatmentAuth === "Undetermined") {
+        trPill.textContent = "Undetermined";
+        trPill.classList.add(
+          "bg-amber-100",
+          "text-amber-800",
+          "border-amber-300",
+        );
+        trSub.textContent = "Status unclear — verify requirements.";
+      }
 
       // Adds EVAL special instructions if they exist
 
@@ -350,12 +346,27 @@
         plan.evalSpecialInstructions &&
         plan.evalSpecialInstructions.length > 0
       ) {
+        // Create header
+        const headerEval = document.createElement("h4");
+        headerEval.textContent = "⚠️ Heads-up";
+        headerEval.className = "font-bold text-yellow-600 mb-2"; // optional styling
+
+        evalInstructionsContainer.appendChild(headerEval);
+
+        // Create list
+        const ulEval = document.createElement("ul");
+        ulEval.className = "list-none space-y-1"; // Tailwind styling (optional)
+
         plan.evalSpecialInstructions.forEach((instr) => {
-          const p = document.createElement("p");
-          p.textContent = instr;
-          p.className = "whitespace-pre-line"
-          evalInstructionsContainer.appendChild(p);
+          const li = document.createElement("li");
+          li.className = "whitespace-pre-line flex items-start gap-2";
+          li.innerHTML = `<span>👉</span><span>${instr}</span>`;
+
+          ulEval.appendChild(li);
         });
+
+        // Append list to container
+        evalInstructionsContainer.appendChild(ulEval);
       }
 
       // Add TREATMENT special instructions if they exist
@@ -365,27 +376,28 @@
       instructionsContainer.innerHTML = ""; // clear old content
 
       if (plan.txSpecialInstructions && plan.txSpecialInstructions.length > 0) {
+        // Create header
+        const headerTx = document.createElement("h4");
+        headerTx.textContent = "⚠️ Heads-up";
+        headerTx.className = "font-bold text-yellow-600 mb-2"; // optional styling
+
+        instructionsContainer.appendChild(headerTx);
+
+        // Create list
+        const ulTx = document.createElement("ul");
+        ulTx.className = "list-none space-y-1"; // Tailwind styling (optional)
+
         plan.txSpecialInstructions.forEach((instr) => {
-          const p = document.createElement("p");
-          p.textContent = instr;
-          p.className = "whitespace-pre-line"
-          instructionsContainer.appendChild(p);
+          const li = document.createElement("li");
+          li.className = "whitespace-pre-line flex items-start gap-2";
+          li.innerHTML = `<span>👉</span><span>${instr}</span>`;
+
+          ulTx.appendChild(li);
         });
+
+        // Append list to container
+        instructionsContainer.appendChild(ulTx);
       }
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

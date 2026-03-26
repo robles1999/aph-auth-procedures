@@ -791,12 +791,27 @@
       instructionsContainer.innerHTML = ""; // clear old content
 
       if (plan.txSpecialInstructions && plan.txSpecialInstructions.length > 0) {
+        // Create header
+        const headerTx = document.createElement("h4");
+        headerTx.textContent = "⚠️ Heads-up";
+        headerTx.className = "font-bold text-yellow-600 mb-2 mt-5"; // optional styling
+
+        instructionsContainer.appendChild(headerTx);
+
+        // Create list
+        const ulTx = document.createElement("ul");
+        ulTx.className = "list-none space-y-1"; // Tailwind styling (optional)
+
         plan.txSpecialInstructions.forEach((instr) => {
-          const p = document.createElement("p");
-          p.textContent = instr;
-          p.className = "whitespace-pre-line";
-          instructionsContainer.appendChild(p);
+          const li = document.createElement("li");
+          li.className = "whitespace-pre-line flex items-start gap-2";
+          li.innerHTML = `<span>👉</span><span>${instr}</span>`;
+
+          ulTx.appendChild(li);
         });
+
+        // Append list to container
+        instructionsContainer.appendChild(ulTx);
       }
     </script>
   </body>
