@@ -1,777 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link href="life_8868458-64px.png" rel="icon" type="image/png" />
   <title>Evaluation Steps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Tailwind + Extended Config -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-          },
-          colors: {
-            primary: "#3B82F6",
-            accent: "#EC4899",
-          },
-          boxShadow: {
-            glass: "0 8px 32px 0 rgba(31, 38, 135, 0.1)",
-          },
-        },
-      },
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+          colors: { primary: "#3B82F6", accent: "#EC4899" },
+          boxShadow: { glass: "0 8px 32px 0 rgba(31, 38, 135, 0.1)" }
+        }
+      }
     };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-
 <body class="bg-gray-100 text-gray-900 font-sans">
   <main class="p-6 max-w-5xl mx-auto">
-    <!-- Navigation Buttons -->
-
-    <!-- All Plans Link -->
     <div class="flex flex-wrap gap-4 mb-6">
-      <a href="index.html"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition">
-        <span class="text-lg leading-none">←</span>
-        All Plans
-      </a>
-
-      <!-- Plan Overview Link -->
-      <a href="step1.html"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition">
-        <span class="text-lg leading-none">←</span>Plan Overview</a>
+      <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition"><span class="text-lg leading-none">←</span> All Plans</a>
+      <a href="step1.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-primary hover:bg-primary/10 hover:shadow-md transition"><span class="text-lg leading-none">←</span> Plan Overview</a>
     </div>
-
-    <!-- Page Under Construction Card Start -->
-    <!--
-      <div
-        class="bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-xl p-4 mb-6 text-center shadow-md"
-      >
-        <h3 class="text-xl font-semibold mb-1">🚧 Page Under Construction</h3>
-        <p class="text-sm">
-          We're working hard to bring this page to life. Please check back soon!
-        </p>
-      </div>
-      -->
-    <!-- Page Under Construction Card End -->
-
-    <!-- Plan Header Card -->
 
     <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg">
       <div class="flex items-center space-x-4">
         <div id="plan-logo" class="text-4xl">🏥</div>
-        <div>
-          <h2 id="plan-name" class="text-2xl font-bold text-gray-900">
-            Plan Name
-          </h2>
-          <p id="plan-category" class="text-gray-600">Category</p>
-        </div>
-
-        <div class="ml-auto p-3 rounded-xl bg-blue-100 flex items-center">
-          <span class="text-primary text-2xl">🩺</span>
-        </div>
+        <div><h2 id="plan-name" class="text-2xl font-bold text-gray-900">Plan Name</h2><p id="plan-category" class="text-gray-600">Category</p></div>
+        <div class="ml-auto p-3 rounded-xl bg-blue-100 flex items-center"><span class="text-primary text-2xl">🩺</span></div>
       </div>
     </section>
-
-    <!-- Authorization Notice -->
 
     <section class="bg-blue-50/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border-2 border-blue-200 shadow-lg">
-      <div class="flex items-center space-x-3 mb-3">
-        <span class="w-6 h-6 text-blue-600 block">⚠️</span>
-        <h3 class="text-lg font-semibold text-blue-800">
-          Insurance verification required.
-        </h3>
-      </div>
-      <!--
-        <p class="text-sm text-blue-700">
-          Proceed to collect insurance verification information.
-        </p> -->
+      <div class="flex items-center space-x-3 mb-3"><span class="w-6 h-6 text-blue-600 block">⚠️</span><h3 class="text-lg font-semibold text-blue-800">Insurance verification required.</h3></div>
     </section>
-
-    <!-- Required Steps -->
 
     <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg">
       <h2 class="font-bold italic text-red-600 text-2xl">Epic</h2>
-      <h3 class="text-xl font-semibold text-gray-900 mb-4">
-        Required Preparation Steps
-      </h3>
+      <h3 class="text-xl font-semibold text-gray-900 mb-4">Required Preparation Steps</h3>
       <div class="space-y-4">
-        <!-- Required Step 1 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            1
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900">
-              Review referral communications history. Continue with
-              verification if needed.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            2
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900">
-              Make sure a valid RX (Prescription/Referral) is in the system.<br><br>
-              If a valid RX is not on file, follow established process to request an updated RX from
-              the provider.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            3
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900">
-              Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal. <br><br>If the
-              RTE is used, it is a good idea to also review the <span class="font-bold">Response History</span> to check
-              for any alerts or issues with the insurance that may require follow-up.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            4
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <h2 class="font-medium text-gray-900">
-              Add a Rehab Insurance Summary note in the referral
-              communications section
-            </h2>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <div class="text-gray-900">
-                <ul class="list-disc list-outside pl-5 ml-4">
-                  <!--
-                    <li>Click on <span class="font-bold">New Note</span></li> -->
-                  <li>
-                    SmartPhrase 👉 <span class="font-semibold">REHABINSURANCESUMMARY</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 5 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            5
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <h2 class="font-medium text-gray-900">
-              Complete the Rehab Insurance Summary form using the portal
-              information
-            </h2>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <div class="text-gray-900">
-                <ul class="list-disc list-outside pl-5 ml-4">
-                  <li>
-                    Access the <span class="font-bold">Payer Portal</span> to
-                    gather the patient's insurance details
-                  </li>
-                  <li>
-                    Use the information retrieved to fill out each item of the
-                    Rehab Insurance Summary form
-                  </li>
-                </ul>
-                <div class="flex justify-center">
-                  <a id="openPortalBtn" href="#"
-                    class="inline-block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white pl-4 pr-4 pt-1 pb-1 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition shadow-lg mt-3">
-                    Open Portal
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="flex items-start space-x-4"><div class="step-number">1</div><div class="step-card"><p class="font-medium">Review referral communications history. Continue with verification if needed.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">2</div><div class="step-card"><p class="font-medium">Make sure a valid RX (Prescription/Referral) is in the system.<br><br>If a valid RX is not on file, follow established process to request an updated RX from the provider.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">3</div><div class="step-card"><p class="font-medium">Ensure coverage eligibility by way of Registration (RTE), Passport, or Insurance Portal.<br><br>If the RTE is used, it is a good idea to also review the <span class="font-bold">Response History</span> to check for any alerts or issues with the insurance that may require follow-up.</p></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">4</div><div class="step-card"><h2 class="font-medium">Add a Rehab Insurance Summary note in the referral communications section</h2><div class="inner-card"><ul class="list-disc list-outside pl-5 ml-4"><li>SmartPhrase 👉 <span class="font-semibold">REHABINSURANCESUMMARY</span></li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">5</div><div class="step-card"><h2 class="font-medium">Complete the Rehab Insurance Summary form using the portal information</h2><div class="inner-card"><ul class="list-disc list-outside pl-5 ml-4"><li>Access the <span class="font-bold">Payer Portal</span> to gather the patient's insurance details</li><li>Use the information retrieved to fill out each item of the Rehab Insurance Summary form</li></ul><div class="flex justify-center"><a id="openPortalBtn" href="#" class="inline-block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-1 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition shadow-lg mt-3">Open Portal</a></div></div></div></div>
       </div>
     </section>
 
-    <!-- Action & Info Grid -->
-
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-      <!-- Access Portal -->
-
       <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-lg">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl">
-            <span class="w-6 h-6 text-white block">🚧</span>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-900 text-lg">Under Construction</h4>
-            <!-- <p class="text-gray-600 text-sm">Insurance Portal</p> -->
-          </div>
-        </div>
-        <!-- <a id="openPortalBtn" href="#"
-          class="w-full block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition shadow-lg mb-6">Open
-          Portal</a> -->
-
-        <!-- Portal Specific Instructions -->
-        <!--
-          <a
-            id="openInstructionsPortalBtn"
-            href="#"
-            class="w-full block text-center bg-gradient-to-r from-red-600 to-yellow-600 text-white py-3 rounded-xl font-semibold hover:from-red-700 hover:to-yellow-700 transition shadow-lg"
-          >
-            Portal Specific Instructions
-          </a> 
-          -->
+        <div class="flex items-center space-x-3 mb-4"><div class="p-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl"><span class="w-6 h-6 text-white block">📄</span></div><div><h4 class="font-semibold text-gray-900 text-lg">Required Information</h4><p class="text-gray-600 text-sm">Prepare these items</p></div></div>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start space-x-2"><span class="text-green-600">✓</span><span>Valid RX (Prescription/Referral)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-green-600">✓</span><span>Patient insurance ID</span></li>
+          <li class="flex items-start space-x-2"><span class="text-green-600">✓</span><span>Provider NPI</span></li>
+          <li class="flex items-start space-x-2"><span class="text-green-600">✓</span><span>Tax ID</span></li>
+        </ul>
       </section>
 
-      <!-- 👇👇 Modal background 👇👇 -->
-      <div id="portalModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
-        <!-- Modal content -->
-        <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm text-center mx-4">
-          <h2 class="text-lg font-semibold mb-3">Coming Soon</h2>
-          <p class="text-gray-600 mb-4">
-            Portal-specific instructions will be available here soon.
-          </p>
-          <button id="closeModalBtn" class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition">
-            Close
-          </button>
-        </div>
-      </div>
-      <!-- 👆👆 Modal code ends here 👆👆 -->
-
-      <!-- Required Information -->
-
-      <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-lg">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="p-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl">
-            <span class="w-6 h-6 text-white block">📄</span>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-900 text-lg">
-              Required Information
-            </h4>
-            <p class="text-gray-600 text-sm">Prepare these items</p>
-          </div>
-        </div>
-        <ul class="space-y-2 text-sm text-gray-700">
-          <li class="flex items-start space-x-2">
-            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-            <span>Valid RX (Prescription/Referral)</span>
-          </li>
-
-          <li class="flex items-start space-x-2">
-            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-            <span>Patient insurance id</span>
-          </li>
-
-          <li class="flex items-start space-x-2">
-            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-            <span>Provider NPI</span>
-          </li>
-
-          <li class="flex items-start space-x-2">
-            <span class="w-4 h-4 text-green-600 mt-0.5 block">✓</span>
-            <span>Tax Id</span>
-          </li>
-          <!-- 👇👇 TREATMENT Special instructions will go here -->
-          <p id="treat-instructions" class="text-red-500 font-semibold text-sm mt-2 text-left"></p>
-          <!-- 👆👆 TREATMENT Special instructions will go here -->
-        </ul>
+      <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-amber-200 shadow-lg">
+        <div class="flex items-center space-x-3 mb-4"><div class="p-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl"><span class="w-6 h-6 text-white block">⚠️</span></div><div><h4 class="font-semibold text-gray-900 text-lg">Heads-up</h4><p class="text-gray-600 text-sm">Plan-specific instructions</p></div></div>
+        <div id="eval-instructions" class="text-red-600 font-semibold text-sm text-left"><p class="text-gray-500 font-normal">No special instructions for this plan.</p></div>
       </section>
     </div>
 
-    <!-- Key Information -->
-
-    <!-- <section
-                     class="bg-white/90 backdrop-blur-sm rounded-2xl p-6
-             border border-gray-200 shadow-lg mb-6">
-                <h4 class="font-semibold text-gray-900 text-lg mb-4">Key Information</h4>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
-
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                        <div class="font-medium text-blue-900">Provider NPI</div>
-                        <div class="text-blue-700">1184709057</div>
-                    </div>
-
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                        <div class="font-medium text-blue-900">Tax Id</div>
-                        <div class="text-blue-700">591726273</div>
-                    </div>
-
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                        <div class="font-medium text-blue-900">Phone</div>
-                        <div class="text-blue-700">321-841-2261</div>
-                    </div>
-
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                        <div class="font-medium text-blue-900">Fax</div>
-                        <div class="text-blue-700">321-843-1481</div>
-                    </div>
-
-                </div>
-            </section> -->
-
-    <!-- Required Steps After Portal -->
-
     <section class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-gray-200 shadow-lg">
       <h2 class="font-bold italic text-red-600 text-2xl">Epic</h2>
-      <h3 class="text-xl font-semibold text-gray-900 mb-4">
-        Referral Update Steps by Section
-      </h3>
+      <h3 class="text-xl font-semibold text-gray-900 mb-4">Referral Update Steps by Section</h3>
       <div class="space-y-4">
-        <!-- Required Step 1 -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            1
-          </div>
-
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <h2 class="font-medium text-gray-900 text-lg">General</h2>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <h2 class="font-medium text-gray-900 text-md">
-                Authorization Scenarios
-              </h2>
-
-              <div class="text-gray-900">
-                <p>
-                  <span class="font-semibold">If authorization is not required:</span>
-                </p>
-                <ul class="list-disc list-outside pl-5 ml-4">
-                  <li><span class="font-bold">Status</span>: Authorized</li>
-                  <li>
-                    <span class="font-bold">Auth Reason</span>: No Payer Auth
-                    Required
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 communications -->
-
-        <!-- <div class="flex items-start space-x-4">
-            <div
-                 class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-              2
-            </div>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-              <p class="font-medium text-gray-900 text-lg">❓Communications</p>
-              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6"> -->
-        <!-- No Auth Required -->
-        <!--  <div class="text-gray-900 space-y-2"> -->
-        <!-- <p class="font-semibold">If no Auth Required:</p> -->
-        <!--  <ul class="list-disc list-inside ml-4 space-y-1">
-                    <li>
-                      <span class="font-bold">Add</span>: Rehab Insurance
-                      Summary
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-        <!-- Required Step 2 Benefit Collection -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            2
-          </div>
-
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">
-              Benefit Collection ☂
-              <span class="font-semibold">(in the patient registration under More)</span>
-            </p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <div class="text-gray-900">
-                <ul class="list-disc list-outside pl-5 ml-4">
-                  <li>
-                    <span class="font-bold">Selected network level:</span> In
-                  </li>
-                  <li><span class="font-bold">Estimate Needed:</span> Yes</li>
-                  <li>
-                    Verify if the Benefit Collection information matches the
-                    portal information
-                  </li>
-                  <li>
-                    Add, update or make changes to the Benefit Collection if
-                    necessary
-                  </li>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- After Portal Step 3 Communications -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            3
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">
-              Estimates 💵
-              <span class="font-semibold">(in the patient registration under More)</span>
-            </p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <!-- No Auth Required -->
-              <div class="text-gray-900 space-y-2">
-                <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                  <!-- <ul class="list-disc list-inside ml-4 space-y-1"> -->
-                  <li>Add an <span class="font-bold">HB Procedure</span></li>
-                  <li>
-                    <span class="font-bold">New Hospital Procedure:</span>
-                    Generate a separate estimate for <span class="font-bold">each discipline/</span>(CPT Code) included
-                    in the authorization request
-                  </li>
-                  <li>Ensure the <span class="font-bold">Service Type </span>you choose matches the discipline for the
-                    CPT code you are entering</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- After Portal Step 4 Communications -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            4
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">Communications</p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <!-- No Auth Required -->
-              <div class="text-gray-900 space-y-2">
-                <ul class="list-disc list-inside ml-4 space-y-1">
-                  <li>
-                    <span class="font-bold">Add an EFR note</span>: SmartPhrase 👉 <span
-                      class="font-semibold">EFRREHAB</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- After Portal Step 5 Scheduling -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            5
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">Scheduling</p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <!-- No Auth Required -->
-              <div class="text-gray-900 space-y-2">
-                <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                  <li>
-                    <span class="font-bold">Scheduling Status: </span>Ready to
-                    Schedule
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 6 Authorization -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            6
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">Authorization</p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <div class="text-gray-900 space-y-2">
-                <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                  <li>
-                    <span class="font-bold">Referral Counts:</span><br>
-                    <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                      <li><span class="font-bold">Requested:</span> visits requested </li>
-
-                      <li><span class="font-bold">Authorized Override:</span> visits allowed per the portal
-                        eligibility inquiry</li>
-                    </ul>
-                  </li>
-                  <br>
-                  <li>
-                    <span class="font-bold">Referral-Level Authorization Information (dates should reflect this year):
-                    </span>
-                    <!-- Start and End dates list -->
-                    <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                      <li>
-                        Start Date of
-                        <span class="font-bold">01/01/YYYY</span>
-                      </li>
-                      <li>
-                        Expiration Date of
-                        <span class="font-bold">12/31/YYYY</span>
-                      </li>
-                    </ul>
-                    <!-- End of Start and End dates list -->
-                  </li>
-                  <br>
-                  <li>
-                    <span class="font-bold">Comment:</span> (examples 35/35
-                    COMBINED VISITS, 10 VISITS, etc...) If unlimited visits enter "UNLIMITED
-                    VISITS"
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- After Portal Step 7 Scheduling -->
-
-        <div class="flex items-start space-x-4">
-          <div
-            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1">
-            7
-          </div>
-          <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-            <p class="font-medium text-gray-900 text-lg">IV Flag 🚩 (IV Flag is found in appt desk - under Patient
-              Options)</p>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              <!-- No Auth Required -->
-              <div class="text-gray-900 space-y-2">
-                <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                  <li>
-                    Add a flag to the account indicating that the patient’s <span class="font-bold">current‑year</span>
-                    insurance information has been collected <br>SmartPhrase 👉 <span
-                      class="font-semibold">REHABBENEFITYYYY</span>
-                    <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                      <li><span class="font-bold">Contact:</span> Empty (no value) </li>
-                      <li><span class="font-bold">Flag type:</span> General </li>
-                      <li><span class="font-bold">Flag expiration date:</span> 12/31/YYYY </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 8 Coverage Authorization -->
-        <!--
-          <div class="flex items-start space-x-4">
-            <div
-              class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mt-1"
-            >
-              7
-            </div>
-            <div class="flex-1 p-4 bg-gray-100/80 rounded-lg">
-              <p class="font-medium text-gray-900 text-lg">
-                ✔ Coverage Authorization
-              </p>
-              <div class="flex-1 p-4 bg-gray-100/80 rounded-lg space-y-6">
-              -->
-        <!-- <h2 class="font-medium text-gray-900 text-md">
-                            Authorization Scenarios
-                          </h2> -->
-        <!-- PLACE HOLDER -->
-        <!-- <div class="text-gray-900 space-y-2"> -->
-        <!-- <ul class="list-disc list-outside pl-5 ml-4 space-y-1"> -->
-        <!-- <li>
-                      <span class="font-bold">Auth #:</span> Enter received
-                      Authorization or Confirmation number
-                    </li> -->
-        <!-- <li>
-                                <span class="font-bold">Authorized Dates: </span>Start
-                                Date of <span class="font-bold">Today</span> and
-                                Expiration Date of
-                                <span class="font-bold">Authorized Expiration Date</span>
-                              </li> -->
-        <!-- <li>
-                      <span class="font-bold">+ add comments:</span>
-                      {discipline} AUTH APPROVED
-                    </li> -->
-        <!--  </ul> -->
-        <!-- </div> -->
-        <!-- If No Auth Required -->
-        <!--
-                <div class="text-gray-900 space-y-2">
-                  <p class="font-semibold">Click on CPT/HCPCS</p>
-                  <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                    <li>
-                      <span class="font-bold">Service Code:</span> Enter the CPT
-                      code for the requested authorization
-                    </li>
-                    <li>
-                      <span class="font-bold">Auth Status:</span> No Auth
-                      Required
-                    </li>
-                    <li>
-                      <span class="font-bold"
-                        >Authorized Dates:
-                      </span> -->
-        <!-- Start and End dates list -->
-        <!--
-                      <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                        <li>
-                          Start Date of
-                          <span class="font-bold">Start Plan Date</span>
-                        </li>
-                        <li>
-                          Expiration Date of
-                          <span class="font-bold">Plan End Date</span>
-                        </li>
-                      </ul> -->
-        <!-- End of Start and End dates list -->
-        <!--
-                    </li>
-                    <li><span class="font-bold">Requested:</span> 1</li>
-                    <li><span class="font-bold">Approved:</span> 1</li>
-                    <li>
-                      <span class="font-bold">+ add comments:</span>
-                      {discipline} EVAL AUTHORIZATION
-                    </li>
-                  </ul>
-                </div>
-              -->
-        <!-- PLACE HOLDER -->
-        <!-- <div class="text-gray-900 space-y-2">
-                            <p class="font-semibold">{PLACE HOLDER}</p>
-                            <ul class="list-disc list-outside pl-5 ml-4 space-y-1">
-                              <li>{PLACE HOLDER}</li>
-                              <li>{PLACE HOLDER}</li>
-                            </ul>
-                          </div> -->
-        <!-- 
-                        </div>
-            </div> -->
-      </div>
+        <div class="flex items-start space-x-4"><div class="step-number">1</div><div class="step-card"><h2 class="font-medium text-lg">General</h2><div class="inner-card"><h2 class="font-medium mb-4">Authorization Scenarios</h2><p><span class="font-semibold">If authorization is not required:</span></p><ul class="list-disc pl-9"><li><b>Status:</b> Authorized</li><li><b>Auth Reason:</b> No Payer Auth Required</li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">2</div><div class="step-card"><p class="font-medium text-lg">Benefit Collection ☂ <span class="font-semibold">(in the patient registration under More)</span></p><div class="inner-card"><ul class="list-disc pl-9"><li><b>Selected network level:</b> In</li><li><b>Estimate Needed:</b> Yes</li><li>Verify if the Benefit Collection information matches the portal information</li><li>Add, update or make changes to the Benefit Collection if necessary</li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">3</div><div class="step-card"><p class="font-medium text-lg">Estimates 💵 <span class="font-semibold">(in the patient registration under More)</span></p><div class="inner-card"><ul class="list-disc pl-9"><li>Add an <b>HB Procedure</b></li><li><b>New Hospital Procedure:</b> Generate a separate estimate for <b>each discipline</b> or CPT code included in the authorization request</li><li>Ensure the <b>Service Type</b> matches the discipline for the CPT code</li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">4</div><div class="step-card"><p class="font-medium text-lg">Communications</p><div class="inner-card"><ul class="list-disc pl-9"><li><b>Add an EFR note:</b> SmartPhrase 👉 <b>EFRREHAB</b></li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">5</div><div class="step-card"><p class="font-medium text-lg">Scheduling</p><div class="inner-card"><ul class="list-disc pl-9"><li><b>Scheduling Status:</b> Ready to Schedule</li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">6</div><div class="step-card"><p class="font-medium text-lg">Authorization</p><div class="inner-card"><ul class="list-disc pl-9 space-y-2"><li><b>Referral Counts:</b><ul class="list-disc pl-9"><li><b>Requested:</b> visits requested</li><li><b>Authorized Override:</b> visits allowed per the portal eligibility inquiry</li></ul></li><li><b>Referral-Level Authorization Information (dates should reflect this year):</b><ul class="list-disc pl-9"><li>Start Date of <b>01/01/YYYY</b></li><li>Expiration Date of <b>12/31/YYYY</b></li></ul></li><li><b>Comment:</b> examples 35/35 COMBINED VISITS, 10 VISITS, etc. If unlimited visits, enter “UNLIMITED VISITS.”</li></ul></div></div></div>
+        <div class="flex items-start space-x-4"><div class="step-number">7</div><div class="step-card"><p class="font-medium text-lg">IV Flag 🚩 (IV Flag is found in appt desk under Patient Options)</p><div class="inner-card"><ul class="list-disc pl-9"><li>Add a flag indicating that the patient’s <b>current-year</b> insurance information has been collected. SmartPhrase 👉 <b>REHABBENEFITYYYY</b><ul class="list-disc pl-9"><li><b>Contact:</b> Empty (no value)</li><li><b>Flag type:</b> General</li><li><b>Flag expiration date:</b> 12/31/YYYY</li></ul></li></ul></div></div></div>
       </div>
     </section>
   </main>
 
-  <!-- JavaScript -->
+  <style>
+    .step-number { width:2rem; height:2rem; flex:none; background:linear-gradient(to right,#3b82f6,#4f46e5); border-radius:9999px; display:flex; align-items:center; justify-content:center; color:white; font-weight:600; font-size:.875rem; margin-top:.25rem; }
+    .step-card { flex:1; min-width:0; padding:1rem; background:rgba(243,244,246,.8); border-radius:.5rem; }
+    .inner-card { padding:1rem; margin-top:.5rem; background:rgba(243,244,246,.8); border-radius:.5rem; }
+  </style>
 
   <script>
-    // pull dataset and current plan
     const plans = JSON.parse(localStorage.getItem("insurancePlans") || "{}");
     const name = localStorage.getItem("currentPlanName") || "";
     const plan = plans[name] || {};
 
-    // fill header card…
     document.getElementById("plan-logo").textContent = plan.logo || "🏥";
-    document.getElementById("plan-name").textContent = name;
-    document.getElementById("plan-category").textContent =
-      plan.category || "";
+    document.getElementById("plan-name").textContent = name || "Plan Name";
+    document.getElementById("plan-category").textContent = plan.category || "";
 
-    // 2) set the portal button href dynamically
     const openPortalBtn = document.getElementById("openPortalBtn");
     if (plan.ivPortalUrl) {
       openPortalBtn.href = plan.ivPortalUrl;
-      openPortalBtn.setAttribute("target", "_blank");
+      openPortalBtn.target = "_blank";
+      openPortalBtn.rel = "noopener noreferrer";
     } else {
-      // fallback: disable or hide
       openPortalBtn.href = "#";
       openPortalBtn.classList.add("opacity-50", "cursor-not-allowed");
-      openPortalBtn.removeAttribute("hover:from-green-700");
+      openPortalBtn.setAttribute("aria-disabled", "true");
+      openPortalBtn.addEventListener("click", event => event.preventDefault());
     }
 
-    // Modal script (red button)
-    document.addEventListener("DOMContentLoaded", () => {
-      const instructionsBtn = document.getElementById(
-        "openInstructionsPortalBtn"
-      );
-      const modal = document.getElementById("portalModal");
-      const closeBtn = document.getElementById("closeModalBtn");
-
-      if (!instructionsBtn || !modal || !closeBtn) {
-        console.warn("Modal elements not found in DOM");
-        return;
-      }
-
-      instructionsBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("clicked"); // debugging
-        modal.classList.remove("hidden");
+    const instructionsContainer = document.getElementById("eval-instructions");
+    instructionsContainer.innerHTML = "";
+    if (Array.isArray(plan.evalSpecialInstructions) && plan.evalSpecialInstructions.length > 0) {
+      const list = document.createElement("ul");
+      list.className = "list-none space-y-3";
+      plan.evalSpecialInstructions.forEach(instruction => {
+        const item = document.createElement("li");
+        item.className = "whitespace-pre-line flex items-start gap-2";
+        const icon = document.createElement("span");
+        icon.textContent = "👉";
+        icon.setAttribute("aria-hidden", "true");
+        const text = document.createElement("span");
+        text.textContent = instruction;
+        item.append(icon, text);
+        list.appendChild(item);
       });
-
-      closeBtn.addEventListener("click", () => {
-        modal.classList.add("hidden");
-      });
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.add("hidden");
-        }
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          modal.classList.add("hidden");
-        }
-      });
-    });
-    // Add TREATMENT special instructions if they exist
-
-    const instructionsContainer =
-      document.getElementById("treat-instructions");
-    instructionsContainer.innerHTML = ""; // clear old content
-
-    if (plan.evalSpecialInstructions && plan.evalSpecialInstructions.length > 0) {
-      // Create header
-      const headerTx = document.createElement("h4");
-      headerTx.textContent = "⚠️ Heads-up";
-      headerTx.className = "font-bold text-amber-500 mb-2 mt-5"; // optional styling
-
-      instructionsContainer.appendChild(headerTx);
-
-      // Create list
-      const ulTx = document.createElement("ul");
-      ulTx.className = "list-none space-y-1"; // Tailwind styling (optional)
-
-      plan.evalSpecialInstructions.forEach((instr) => {
-        const li = document.createElement("li");
-        li.className = "whitespace-pre-line flex items-start gap-2";
-        li.innerHTML = `<span>👉</span><span>${instr}</span>`;
-
-        ulTx.appendChild(li);
-      });
-
-      // Append list to container
-      instructionsContainer.appendChild(ulTx);
+      instructionsContainer.appendChild(list);
+    } else {
+      const message = document.createElement("p");
+      message.className = "text-gray-500 font-normal";
+      message.textContent = "No special instructions for this plan.";
+      instructionsContainer.appendChild(message);
     }
   </script>
 </body>
-
 </html>
